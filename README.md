@@ -1,0 +1,2 @@
+# beautymmakeup
+使用Spring、SpringMvc、Hibernate为主题架构的美妆交易web项目
