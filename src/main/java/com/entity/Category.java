@@ -14,13 +14,9 @@ public class Category {
     @GenericGenerator(name="_native",strategy="native")
     private Long id;
 
-    // 归属分类ID
-    @Column(name = "tglparentid")
-    private String tglparentid;
-
     // 类别名称
-    @Column(name = "datashowname")
-    private String datashowname;
+    @Column(name = "name")
+    private String name;
 
     public Long getId() {
         return id;
@@ -30,19 +26,11 @@ public class Category {
         this.id = id;
     }
 
-    public String getTglparentid() {
-        return tglparentid;
+    public String getName() {
+        return name;
     }
 
-    public void setTglparentid(String tglparentid) {
-        this.tglparentid = tglparentid;
-    }
-
-    public String getDatashowname() {
-        return datashowname;
-    }
-
-    public void setDatashowname(String datashowname) {
-        this.datashowname = datashowname;
+    public void setName(String name) {
+        this.name = name;
     }
 }

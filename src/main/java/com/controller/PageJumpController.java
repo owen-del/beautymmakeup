@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PageJumpController {
 
 
+
     /**
      * 登录页面
      * @return
@@ -26,6 +27,15 @@ public class PageJumpController {
     public String register() {
         return "register";
     }
+
+    /**
+     * 登录首页
+     */
+    @RequestMapping(value = {"/admin/index", "/"}, method = RequestMethod.GET)
+    public String index() {
+        return "admin/index";
+    }
+
 
 
 

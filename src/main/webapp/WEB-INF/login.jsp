@@ -148,7 +148,7 @@
             dataType:"json",
             success:function(data){
                 if (data.success) {
-                    alert(data.message)
+                    window.location.href="/admin/index";
                 }else {
                     $.confirm({
                         title: '警告',

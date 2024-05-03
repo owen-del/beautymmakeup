@@ -18,8 +18,6 @@
     <junit-version>4.13.2</junit-version>
     <mysql-version>8.0.23</mysql-version>
     <c3p0-version>0.9.5.5</c3p0-version>
-    <jsp-version>2.2</jsp-version>
-    <jstl-version>1.2</jstl-version>
     <fastjson2-versoin>2.0.14</fastjson2-versoin>
     <hibernate.version>6.5.0.Final</hibernate.version>
   </properties>
@@ -149,18 +147,36 @@
       <scope>provided</scope>
     </dependency>
 
+
+    <!--standard-impl-->
     <dependency>
-      <groupId>javax.servlet.jsp</groupId>
-      <artifactId>jsp-api</artifactId>
-      <version>${jsp-version}</version>
-      <scope>provided</scope>
+      <groupId>org.apache.taglibs</groupId>
+      <artifactId>taglibs-standard-impl</artifactId>
+      <version>1.2.5</version>
+      <scope>runtime</scope>
+    </dependency>
+    <!--standard-spec-->
+    <dependency>
+      <groupId>org.apache.taglibs</groupId>
+      <artifactId>taglibs-standard-spec</artifactId>
+      <version>1.2.5</version>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.servlet.jsp</groupId>
+      <artifactId>jakarta.servlet.jsp-api</artifactId>
+      <version>3.0.0</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.glassfish.web</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+      <version>3.0.0</version>
+    </dependency>
 
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>jstl</artifactId>
-      <version>${jstl-version}</version>
+      <groupId>jakarta.servlet.jsp.jstl</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+      <version>2.0.0</version>
     </dependency>
 
     <dependency>
