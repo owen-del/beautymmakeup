@@ -5,8 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-
-    <!--    <mvc:default-servlet-handler/>-->
     <!-- 启动注解驱动的 spring mvc 功能 -->
     <mvc:annotation-driven>
         <!-- 解决 Responsbody 返回的乱码-->
@@ -18,8 +16,11 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <!-- 2.静态资源默认servlet配置 (1)加入对静态资源的处理：js,gif,png (2)允许使用"/static/"做整体映射 -->
-    <mvc:resources mapping="/static/**" location="/static/" />
+    <!-- 静态资源配置 -->
+    <mvc:resources mapping="/css/**" location="/static/css/"></mvc:resources>
+    <mvc:resources mapping="/fonts/**" location="/static/fonts/"></mvc:resources>
+    <mvc:resources mapping="/images/**" location="/static/images/"></mvc:resources>
+    <mvc:resources mapping="/js/**" location="/static/js/"></mvc:resources>
 
     <!-- 静态资源过滤 -->
     <mvc:default-servlet-handler/>
