@@ -6,7 +6,10 @@ import com.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
@@ -18,6 +21,14 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 登录接口
+     * @param account
+     * @param password
+     * @param captcha
+     * @param request
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseResult login(@RequestParam("account") String account, @RequestParam("password") String password, @RequestParam("captcha") String captcha, HttpServletRequest request){
@@ -39,7 +50,14 @@ public class LoginController {
         }else {
             return ResponseResult.FAILED("验证码错误");
         }
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public ResponseResult register(User user){
+        return userService.save(user);
 
     }
+
 
 }
