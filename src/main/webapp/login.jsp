@@ -12,6 +12,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/materialdesignicons.min.css" rel="stylesheet">
     <link href="css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="js/jconfirm/jquery-confirm.min.css">
     <style>
         body {
             display: -webkit-box;
@@ -82,7 +83,7 @@
         <div class="login-left">
             <form action="#!" method="post">
                 <div class="form-group has-feedback feedback-left">
-                    <input type="text" placeholder="请输入您的用户名" class="form-control" name="username" id="username" />
+                    <input type="text" placeholder="请输入账号" class="form-control" name="account" id="account" />
                     <span class="mdi mdi-account form-control-feedback" aria-hidden="true"></span>
                 </div>
                 <div class="form-group has-feedback feedback-left">
@@ -99,7 +100,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-block btn-primary" type="button" onclick="">立即登录</button>
+                    <button class="btn btn-block btn-primary" type="button" onclick="login()">立即登录</button>
                 </div>
             </form>
         </div>
@@ -112,7 +113,61 @@
 </div>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="js/jconfirm/jquery-confirm.min.js"></script>
 <script type="text/javascript">
+    function login() {
+        var account = $("#account").val();
+        var password = $("#password").val();
+        var captcha = $("input[name='captcha']").val();
+
+        if (account == "" || password == "" || captcha == "") {
+            $.confirm({
+                title: '警告',
+                content: '请输入完整登录信息。',
+                type: 'orange',
+                typeAnimated: false,
+                buttons: {
+                    close: {
+                        text: '关闭',
+                    }
+                }
+            });
+            return;
+        }
+
+        $.ajax({
+            type:"POST",
+            url:"login",
+            data:{
+                "account": account,
+                "password": password,
+                "captcha": captcha
+            },
+            async:false,
+            dataType:"json",
+            success:function(data){
+                if (data.success) {
+                    alert(data.message)
+                }else {
+                    $.confirm({
+                        title: '警告',
+                        content: data.message,
+                        type: 'orange',
+                        typeAnimated: false,
+                        buttons: {
+                            close: {
+                                text: '关闭',
+                            }
+                        }
+                    });
+                }
+            },
+            error:function(w, e, q){
+                console.log(q)
+            }
+
+        });
+    }
 </script>
 </body>
 </html>
