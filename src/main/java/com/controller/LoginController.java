@@ -54,6 +54,17 @@ public class LoginController {
         }
     }
 
+    /**
+     * 退出登录
+     * @return
+     */
+    @RequestMapping(value = "/outLogin", method = RequestMethod.GET)
+    public String outLogin(HttpServletRequest request) {
+        // 清空session
+        request.getSession().invalidate();
+        return "redirect:/login";
+    }
+
     @ResponseBody
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ResponseResult register(User user){

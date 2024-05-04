@@ -18,7 +18,7 @@
 <div class="lyear-layout-web">
     <div class="lyear-layout-container">
         <!--左侧导航-->
-        <jsp:include page="LeftMenu.jsp"/>
+        <jsp:include page="leftMenu.jsp"/>
         <!--End 左侧导航-->
 
         <!--头部信息-->

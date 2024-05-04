@@ -2,17 +2,15 @@
 <ul class="topbar-right">
   <li class="dropdown dropdown-profile">
     <a href="javascript:void(0)" data-toggle="dropdown">
-      <img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg"
-           alt="笔下光年"/>
-      <span>笔下光年 <span class="caret"></span></span>
+      <img class="img-avatar img-avatar-48 m-r-10" src="/upfile/avatar.jpg"
+           alt="${sessionScope.loginUser.name}"/>
+      <span>${sessionScope.loginUser.name} <span class="caret"></span></span>
     </a>
     <ul class="dropdown-menu dropdown-menu-right">
-      <li><a href="lyear_pages_profile.html"><i class="mdi mdi-account"></i> 个人信息</a></li>
-      <li><a href="lyear_pages_edit_pwd.html"><i class="mdi mdi-lock-outline"></i>
+      <li><a href="/admin/user/editOneself"><i class="mdi mdi-account"></i> 个人信息</a></li>
+      <li><a href="/admin/user/resetPassword"><i class="mdi mdi-lock-outline"></i>
         修改密码</a></li>
-      <li><a href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
-      <li class="divider"></li>
-      <li><a href="lyear_pages_login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a>
+      <li><a href="/outLogin"><i class="mdi mdi-logout-variant"></i> 退出登录</a>
       </li>
     </ul>
   </li>
