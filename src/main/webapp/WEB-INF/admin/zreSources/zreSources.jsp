@@ -86,7 +86,7 @@
                             <span class="lyear-toggler-bar"></span>
                             <span class="lyear-toggler-bar"></span>
                         </div>
-                        <span class="navbar-page-title"> 商品管理 </span>
+                        <span class="navbar-page-title"> 站内咨询管理 </span>
                     </div>
 
                     <ul class="topbar-right">
@@ -249,22 +249,24 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-toolbar clearfix">
-                                <form class="pull-right search-bar" method="get" action="/admin/goods/goods" role="form">
+                                <form class="pull-right search-bar" method="get" action="/admin/zreSources/zreSources" id="search-form" role="form">
                                     <div class="input-group">
                                         <div class="input-group-btn">
-                                            <input type="hidden" name="search_field" id="search-field" value="title">
                                             <button class="btn btn-default dropdown-toggle" id="search-btn"
                                                     data-toggle="dropdown" type="button" aria-haspopup="true"
                                                     aria-expanded="false">
-                                                商品名称 <span class="caret"></span>
+                                                标题 <span class="caret"></span>
                                             </button>
                                         </div>
-                                        <input type="text" class="form-control" value="" name="name" onchange="search()"
+                                        <input type="text" class="form-control" value="" name="title" onchange="search()"
                                                placeholder="请输入名称">
                                     </div>
                                 </form>
                                 <div class="toolbar-btn-action">
-                                    <a class="btn btn-danger" href="javascript:void(0);" onclick="deleteBatch()"><i class="mdi mdi-window-close"></i> 删除</a>
+                                    <a class="btn btn-primary m-r-5" href="/admin/zreSources/add"><i
+                                            class="mdi mdi-plus"></i> 新增</a>
+                                    <a class="btn btn-danger" href="javascript:void(0);" onclick="deleteBatch()"><i
+                                            class="mdi mdi-window-close"></i> 删除</a>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -278,18 +280,15 @@
                                                     <input type="checkbox" id="check-all"><span></span>
                                                 </label>
                                             </th>
+                                            <th>标题</th>
+                                            <th>类别</th>
+                                            <th>图片</th>
                                             <th>发布人</th>
-                                            <th>商品编号</th>
-                                            <th>商品名称</th>
-                                            <th>大类</th>
-                                            <th>单价</th>
-                                            <th>上架状态</th>
-                                            <th>评分</th>
+                                            <th>发布时间</th>
                                             <th>操作</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-
                                         <c:forEach var="item" items="${list}">
                                             <tr>
                                                 <td>
@@ -298,20 +297,20 @@
                                                                value="${item.id}"><span></span>
                                                     </label>
                                                 </td>
-                                                <td>${item.user.id} [${item.user.name}]</td>
-                                                <td>${item.no}</td>
-                                                <td>${item.name}</td>
-                                                <td>${item.category.name}</td>
-                                                <td>36</td>
-                                                <td><font class="text-success">正常</font></td>
-                                                <td><font class="text-success">正常</font></td>
+                                                <td>${item.title}</td>
+                                                <td>${item.zrType.name}</td>
+                                                <td><img src="${item.filename}" width="120px"></td>
+                                                <td>${item.user.name}</td>
+                                                <td>${item.createTime}</td>
                                                 <td>
                                                     <div class="btn-group">
-                                                        <a class="btn btn-xs btn-default" href="/admin/goods/details/${item.id}" title="查看"
-                                                           data-toggle="tooltip"><i class="mdi mdi-eye"></i></a>
+                                                        <a class="btn btn-xs btn-default"
+                                                           href="/admin/zreSources/edit/${item.id}" title="编辑"
+                                                           data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
                                                         <a class="btn btn-xs btn-default" href="javascript:void(0);"
                                                            onclick="del(${item.id})" title="删除"
-                                                           data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                                           data-toggle="tooltip"><i
+                                                                class="mdi mdi-window-close"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -339,9 +338,6 @@
 <script src="/js/jconfirm/jquery-confirm.min.js"></script>
 <script type="text/javascript">
 
-    /**
-     * 查询
-     */
     function search() {
         $("#search-form").submit()
     }
@@ -366,7 +362,7 @@
                         action: function () {
                             $.ajax({
                                 type: "POST",
-                                url: "/admin/goods/deleteBatch",
+                                url: "/admin/zreSources/deleteBatch",
                                 data: {
                                     "ids": checkboxValues
                                 },
@@ -382,7 +378,7 @@
                                                     text: '确认',
                                                     btnClass: 'btn-primary',
                                                     action: function () {
-                                                        window.location.href = "/admin/goods/goods";
+                                                        window.location.href = "/admin/zreSources/zreSources";
                                                     }
                                                 }
                                             }
@@ -417,11 +413,14 @@
                     text: '确认',
                     btnClass: 'btn-primary',
                     action: function () {
-                        window.location.href = "/admin/goods/delete/" + id;
+                        window.location.href = "/admin/zreSources/delete/" + id;
                     }
                 },
                 cancel: {
-                    text: '取消'
+                    text: '取消',
+                    action: function () {
+
+                    }
                 }
             }
         });

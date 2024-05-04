@@ -40,7 +40,7 @@
                         <li class="nav-item nav-item-has-subnav">
                             <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i> 网站信息</a>
                             <ul class="nav nav-subnav">
-                                <li> <a href="lyear_forms_elements.html">站内咨询管理</a> </li>
+                                <li> <a href="/admin/zreSources/zreSources">站内咨询管理</a> </li>
                                 <li> <a href="lyear_forms_radio.html">信息类别管理</a> </li>
                                 <li> <a href="lyear_forms_checkbox.html">留言板</a> </li>
                                 <li> <a href="lyear_forms_switch.html">滚动图片</a> </li>
