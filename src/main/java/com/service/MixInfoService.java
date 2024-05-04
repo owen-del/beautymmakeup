@@ -13,6 +13,7 @@ public interface MixInfoService {
      */
     List<MixInfo> findRollingImgLikeTitle(String title);
 
+    List<MixInfo> findBasisLikeTitle(String title);
 
     MixInfo findById(Long id);
 

@@ -1,6 +1,5 @@
 package com.controller.admin;
 
-import com.entity.Category;
 import com.entity.MixInfo;
 import com.service.MixInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +52,35 @@ public class MixInfoController {
     public String saveOrUpdate(MixInfo mixInfo) {
         mixInfoService.saveOrUpdate(mixInfo);
         return "redirect:/admin/mixInfo/rollingImg";
+    }
+
+    /**
+     * 网站基础信息
+     * @param title
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/basis", method = RequestMethod.GET)
+    public ModelAndView basis(@RequestParam(value = "title", defaultValue = "") String title, ModelAndView modelAndView) {
+        List<MixInfo> mixInfoList = mixInfoService.findBasisLikeTitle(title);
+        modelAndView.setViewName("/admin/basis/basis");
+        modelAndView.addObject("list", mixInfoList);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/basis/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView basisEdit(@PathVariable("id") Long id, ModelAndView modelAndView) {
+        MixInfo mixInfo = mixInfoService.findById(id);
+        modelAndView.setViewName("/admin/basis/edit");
+        modelAndView.addObject("mixInfo", mixInfo);
+        modelAndView.addObject("op", "信息修改");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/basis/saveOrUpdate", method = RequestMethod.POST)
+    public String basisSaveOrUpdate(MixInfo mixInfo) {
+        mixInfoService.saveOrUpdate(mixInfo);
+        return "redirect:/admin/mixInfo/basis";
     }
 
 

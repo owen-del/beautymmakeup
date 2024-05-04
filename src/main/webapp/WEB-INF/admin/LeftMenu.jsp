@@ -26,7 +26,7 @@
             <li> <a href="/admin/messages/messages">留言板</a> </li>
             <li> <a href="/admin/mixInfo/rollingImg">滚动图片</a> </li>
             <li> <a href="/admin/friendshipLink/friendshipLink">友情链接</a> </li>
-            <li> <a href="lyear_forms_switch.html">网站基础信息</a> </li>
+            <li> <a href="/admin/mixInfo/basis">网站基础信息</a> </li>
           </ul>
         </li>
         <li class="nav-item nav-item-has-subnav">

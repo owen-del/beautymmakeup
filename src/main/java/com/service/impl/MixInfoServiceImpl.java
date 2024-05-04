@@ -38,6 +38,24 @@ public class MixInfoServiceImpl implements MixInfoService {
         return listAtomicCategory.get();
     }
 
+    @Override
+    public List<MixInfo> findBasisLikeTitle(String title) {
+        AtomicReference<List<MixInfo>> listAtomicCategory = new AtomicReference<>();
+        Session currentSession = sessionFactory.getCurrentSession();
+        Optional.ofNullable(title).ifPresentOrElse(t -> {
+            if (!"".equals(t)) {
+                List<MixInfo> list = currentSession.createQuery("FROM MixInfo WHERE remo = '单' AND title LIKE CONCAT('%',:title,'%') ", MixInfo.class).setParameter("title", t).list();
+                listAtomicCategory.set(list);
+            }else {
+                List<MixInfo> list = currentSession.createQuery("FROM MixInfo WHERE remo = '单' ", MixInfo.class).list();
+                listAtomicCategory.set(list);
+            }
+        }, ()->{
+            List<MixInfo> list = currentSession.createQuery("FROM MixInfo WHERE remo = '单' ", MixInfo.class).list();
+            listAtomicCategory.set(list);
+        });
+        return listAtomicCategory.get();
+    }
 
     @Override
     public MixInfo findById(Long id) {
