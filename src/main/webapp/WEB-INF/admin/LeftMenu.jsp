@@ -32,8 +32,7 @@
         <li class="nav-item nav-item-has-subnav">
           <a href="javascript:void(0)"><i class="mdi mdi-file-outline"></i> 系统用户管理</a>
           <ul class="nav nav-subnav">
-            <li> <a href="lyear_pages_doc.html">管理员</a> </li>
-            <li> <a href="lyear_pages_gallery.html">用户</a> </li>
+            <li> <a href="/admin/user/user">系统用户管理</a> </li>
           </ul>
         </li>
         <li class="nav-item nav-item-has-subnav">
