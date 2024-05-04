@@ -125,4 +125,18 @@ public class UserServiceImpl implements UserService {
             currentSession.saveOrUpdate(user);
         }
     }
+
+    @Override
+    public ResponseResult resetPassword(Long id, String password, String rePassword) {
+        if (!password.equals(rePassword)) {
+            return ResponseResult.FAILED("两次密码不一致");
+        }
+//        User user = findById(id);
+
+        Session currentSession = sessionFactory.getCurrentSession();
+        User user = currentSession.get(User.class, id);
+        user.setPassword(password);
+        currentSession.update(user);
+        return ResponseResult.SUCCESS("重置密码成功");
+    }
 }

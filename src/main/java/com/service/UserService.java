@@ -40,4 +40,13 @@ public interface UserService {
 
     void saveOrUpdate(User user);
 
+    /**
+     * 重置密码
+     * @param id
+     * @param password
+     * @param rePassword
+     * @return
+     */
+    ResponseResult resetPassword(Long id, String password, String rePassword);
+
 }

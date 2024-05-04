@@ -25,6 +25,7 @@ public class UserController {
 
     /**
      * 用户管理
+     *
      * @param name
      * @param modelAndView
      * @return
@@ -55,6 +56,7 @@ public class UserController {
 
     /**
      * 锁定或放开
+     *
      * @param id
      * @return
      */
@@ -67,6 +69,7 @@ public class UserController {
 
     /**
      * 批量锁定或解锁
+     *
      * @param ids
      * @param status 1：锁定；0：解锁
      * @return
@@ -79,12 +82,13 @@ public class UserController {
 
     /**
      * 添加或修改
+     *
      * @param modelAndView
      * @return
      */
     @RequestMapping(value = "/editOneself", method = RequestMethod.GET)
     public ModelAndView editOneself(HttpServletRequest request, ModelAndView modelAndView) {
-        User loginUser = (User)request.getSession().getAttribute("loginUser");
+        User loginUser = (User) request.getSession().getAttribute("loginUser");
         User user = userService.findById(loginUser.getId());
         modelAndView.setViewName("/admin/oneself/oneselfInfo");
         modelAndView.addObject("user", user);
@@ -98,6 +102,25 @@ public class UserController {
         userService.saveOrUpdate(user);
         return "redirect:/admin/index";
     }
+
+
+    @RequestMapping(value = "/resetPassword", method = RequestMethod.GET)
+    public ModelAndView goResetPassword(HttpServletRequest request, ModelAndView modelAndView) {
+        User loginUser = (User) request.getSession().getAttribute("loginUser");
+        User user = userService.findById(loginUser.getId());
+        modelAndView.setViewName("/admin/oneself/resetPassword");
+        modelAndView.addObject("user", user);
+        modelAndView.addObject("op", "修改登录密码");
+        return modelAndView;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
+    public ResponseResult resetPassword(@RequestParam(value = "password") String password, @RequestParam(value = "repassword") String repassword, HttpServletRequest request) {
+        User loginUser = (User) request.getSession().getAttribute("loginUser");
+        return userService.resetPassword(loginUser.getId(),password, repassword);
+    }
+
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView add(ModelAndView modelAndView) {
