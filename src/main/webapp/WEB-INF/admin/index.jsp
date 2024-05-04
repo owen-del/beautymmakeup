@@ -34,7 +34,7 @@
                             <ul class="nav nav-subnav">
                                 <li> <a href="/admin/goods/goods">商品管理</a> </li>
                                 <li> <a href="/admin/category/category">商品类别管理</a> </li>
-                                <li> <a href="lyear_ui_grid.html">交易明细管理</a> </li>
+                                <li><a href="/admin/prosorder/prosorder">交易明细管理</a></li>
                             </ul>
                         </li>
                         <li class="nav-item nav-item-has-subnav">

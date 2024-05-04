@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -12,6 +13,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/js/jconfirm/jquery-confirm.min.css">
 </head>
 
 <body>
@@ -65,8 +67,6 @@
                         </li>
                     </ul>
                 </nav>
-
-
             </div>
 
         </aside>
@@ -84,7 +84,7 @@
                             <span class="lyear-toggler-bar"></span>
                             <span class="lyear-toggler-bar"></span>
                         </div>
-                        <span class="navbar-page-title"> 商品管理 </span>
+                        <span class="navbar-page-title"> ${op} </span>
                     </div>
 
                     <ul class="topbar-right">
@@ -242,95 +242,60 @@
         <!--页面主要内容-->
         <main class="lyear-layout-content">
             <div class="container-fluid">
-
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-toolbar clearfix">
-                                <form class="pull-right search-bar" method="get" action="#!" role="form">
-                                    <div class="input-group">
-                                        <div class="input-group-btn">
-                                            <input type="hidden" name="search_field" id="search-field" value="title">
-                                            <button class="btn btn-default dropdown-toggle" id="search-btn"
-                                                    data-toggle="dropdown" type="button" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                标题 <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><a tabindex="-1" href="javascript:void(0)"
-                                                       data-field="title">标题</a></li>
-                                                <li><a tabindex="-1" href="javascript:void(0)"
-                                                       data-field="cat_name">栏目</a></li>
-                                            </ul>
-                                        </div>
-                                        <input type="text" class="form-control" value="" name="keyword"
-                                               placeholder="请输入名称">
-                                    </div>
-                                </form>
-                                <div class="toolbar-btn-action">
-                                    <a class="btn btn-primary m-r-5" href="#!"><i class="mdi mdi-plus"></i> 新增</a>
-                                    <a class="btn btn-danger" href="#!"><i class="mdi mdi-window-close"></i> 删除</a>
-                                </div>
-                            </div>
                             <div class="card-body">
-
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                        <tr>
-                                            <th>
-                                                <label class="lyear-checkbox checkbox-primary">
-                                                    <input type="checkbox" id="check-all"><span></span>
-                                                </label>
-                                            </th>
-                                            <th>发布人</th>
-                                            <th>商品编号</th>
-                                            <th>商品名称</th>
-                                            <th>大类</th>
-                                            <th>单价</th>
-                                            <th>上架状态</th>
-                                            <th>评分</th>
-                                            <th>操作</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <label class="lyear-checkbox checkbox-primary">
-                                                    <input type="checkbox" name="ids[]" value="1"><span></span>
-                                                </label>
-                                            </td>
-                                            <td>1</td>
-                                            <td>第01章 天涯思君不可忘</td>
-                                            <td>《倚天屠龙记》</td>
-                                            <td>金庸</td>
-                                            <td>36</td>
-                                            <td><font class="text-success">正常</font></td>
-                                            <td><font class="text-success">正常</font></td>
-                                            <td>
-                                                <div class="btn-group">
-                                                    <a class="btn btn-xs btn-default" href="#!" title="编辑"
-                                                       data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
-                                                    <a class="btn btn-xs btn-default" href="#!" title="查看"
-                                                       data-toggle="tooltip"><i class="mdi mdi-eye"></i></a>
-                                                    <a class="btn btn-xs btn-default" href="#!" title="删除"
-                                                       data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="form-group col-md-6">
+                                    <label for="orderno">订单号</label>
+                                    <input type="text" class="form-control" id="orderno" name="orderno" value="${prosorder.orderno}" placeholder="订单号" />
                                 </div>
-
+                                <div class="form-group col-md-6">
+                                    <label for="shopuname">卖方用户名</label>
+                                    <input type="text" class="form-control" id="shopuname" name="shopuname" value="${prosorder.shopuname}" placeholder="卖方用户名" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="uname">买方用户名</label>
+                                    <input type="text" class="form-control" id="uname" name="uname" value="${prosorder.uname}" placeholder="买方用户名" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="gno">商品编号</label>
+                                    <input type="text" class="form-control" id="gno" name="uname" value="${prosorder.gno}" placeholder="商品编号" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="fgname">商品名称</label>
+                                    <input type="text" class="form-control" id="fgname" name="fgname" value="${prosorder.gno}" placeholder="商品名称" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="cprice">成交单价</label>
+                                    <input type="text" class="form-control" id="cprice" name="cprice" value="${prosorder.cprice}" placeholder="成交单价" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="snum">数量</label>
+                                    <input type="text" class="form-control" id="snum" name="snum" value="${prosorder.snum}" placeholder="数量" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="totalamt">应付金额</label>
+                                    <input type="text" class="form-control" id="totalamt" name="totalamt" value="${prosorder.totalamt}" placeholder="应付金额" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="fshstatus">订单状态</label>
+                                    <input type="text" class="form-control" id="fshstatus" name="fshstatus" value="${prosorder.fshstatus}" placeholder="订单状态" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="savetime">申请时间</label>
+                                    <input type="text" class="form-control" id="savetime" name="savetime" value="${prosorder.savetime}" placeholder="申请时间" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);return false;">返 回</button>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
-
             </div>
         </main>
-        <!--End 页面主要内容-->
     </div>
 </div>
 
@@ -338,15 +303,8 @@
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="/js/main.min.js"></script>
-
+<script src="/js/jconfirm/jquery-confirm.min.js"></script>
 <script type="text/javascript">
-    $(function () {
-        $('.search-bar .dropdown-menu a').click(function () {
-            var field = $(this).data('field') || '';
-            $('#search-field').val(field);
-            $('#search-btn').html($(this).text() + ' <span class="caret"></span>');
-        });
-    });
 </script>
 </body>
 </html>
