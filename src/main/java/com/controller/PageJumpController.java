@@ -14,7 +14,7 @@ public class PageJumpController {
      * 登录页面
      * @return
      */
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = {"/login", "/"}, method = RequestMethod.GET)
     public String login() {
         return "login";
     }
@@ -31,7 +31,7 @@ public class PageJumpController {
     /**
      * 登录首页
      */
-    @RequestMapping(value = {"/admin/index", "/"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/admin/index", }, method = RequestMethod.GET)
     public String index() {
         return "admin/index";
     }

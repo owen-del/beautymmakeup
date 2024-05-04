@@ -38,7 +38,7 @@
         <li class="nav-item nav-item-has-subnav">
           <a href="javascript:void(0)"><i class="mdi mdi-language-javascript"></i> 个人信息管理</a>
           <ul class="nav nav-subnav">
-            <li> <a href="lyear_js_datepicker.html">修改个人资料</a> </li>
+            <li> <a href="/admin/user/editOneself">修改个人资料</a> </li>
             <li> <a href="lyear_js_sliders.html">修改登录密码</a> </li>
           </ul>
         </li>

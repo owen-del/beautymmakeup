@@ -39,6 +39,8 @@ public class LoginController {
             AtomicReference<ResponseResult> responseResult = new AtomicReference<>();
             Optional.ofNullable(user).ifPresentOrElse(u -> {
                 if ("正常".equals(u.getStatus())) {
+                    // 将登录成功用户id存入session
+                    request.getSession().setAttribute("loginUser", user);
                     responseResult.set(ResponseResult.SUCCESS("登录成功"));
                 }else {
                     responseResult.set(ResponseResult.FAILED("账号状态异常"));

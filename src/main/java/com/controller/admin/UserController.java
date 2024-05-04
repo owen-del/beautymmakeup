@@ -5,6 +5,7 @@ import com.entity.Category;
 import com.entity.User;
 import com.response.ResponseResult;
 import com.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -76,21 +77,27 @@ public class UserController {
         return userService.lockOrOpenBatch(ids, status);
     }
 
-
     /**
      * 添加或修改
      * @param modelAndView
      * @return
      */
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView edit(@PathVariable("id") Long id, ModelAndView modelAndView) {
-        User user = userService.findById(id);
-        modelAndView.setViewName("/admin/user/addOrEdit");
+    @RequestMapping(value = "/editOneself", method = RequestMethod.GET)
+    public ModelAndView editOneself(HttpServletRequest request, ModelAndView modelAndView) {
+        User loginUser = (User)request.getSession().getAttribute("loginUser");
+        User user = userService.findById(loginUser.getId());
+        modelAndView.setViewName("/admin/oneself/oneselfInfo");
         modelAndView.addObject("user", user);
-        modelAndView.addObject("op", "修改用户信息");
+        modelAndView.addObject("op", "修改个人信息");
         return modelAndView;
     }
 
+
+    @RequestMapping(value = "/saveOrUpdateOneself", method = RequestMethod.POST)
+    public String saveOrUpdateOneself(User user) {
+        userService.saveOrUpdate(user);
+        return "redirect:/admin/index";
+    }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView add(ModelAndView modelAndView) {
@@ -106,9 +113,14 @@ public class UserController {
         return "redirect:/admin/user/user";
     }
 
-
-
-
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView edit(@PathVariable("id") Long id, ModelAndView modelAndView) {
+        User user = userService.findById(id);
+        modelAndView.setViewName("/admin/oneself/oneselfInfo");
+        modelAndView.addObject("user", user);
+        modelAndView.addObject("op", "修改用户信息");
+        return modelAndView;
+    }
 
 
 }
