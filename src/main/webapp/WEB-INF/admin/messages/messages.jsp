@@ -86,7 +86,7 @@
               <span class="lyear-toggler-bar"></span>
               <span class="lyear-toggler-bar"></span>
             </div>
-            <span class="navbar-page-title"> 信息类别管理 </span>
+            <span class="navbar-page-title"> 留言板 </span>
           </div>
 
           <ul class="topbar-right">
@@ -249,22 +249,20 @@
           <div class="col-lg-12">
             <div class="card">
               <div class="card-toolbar clearfix">
-                <form class="pull-right search-bar" method="get" action="/admin/ZrType/ZrType" id="search-form" role="form">
+                <form class="pull-right search-bar" method="get" action="/admin/messages/messages" id="search-form" role="form">
                   <div class="input-group">
                     <div class="input-group-btn">
                       <button class="btn btn-default dropdown-toggle" id="search-btn"
                               data-toggle="dropdown" type="button" aria-haspopup="true"
                               aria-expanded="false">
-                        类别名称 <span class="caret"></span>
+                        内容 <span class="caret"></span>
                       </button>
                     </div>
-                    <input type="text" class="form-control" value="" name="name" onchange="search()"
+                    <input type="text" class="form-control" value="" name="cont" onchange="search()"
                            placeholder="请输入名称">
                   </div>
                 </form>
                 <div class="toolbar-btn-action">
-                  <a class="btn btn-primary m-r-5" href="/admin/ZrType/add"><i
-                          class="mdi mdi-plus"></i> 新增</a>
                   <a class="btn btn-danger" href="javascript:void(0);" onclick="deleteBatch()"><i
                           class="mdi mdi-window-close"></i> 删除</a>
                 </div>
@@ -280,8 +278,10 @@
                           <input type="checkbox" id="check-all"><span></span>
                         </label>
                       </th>
-                      <th>类别名称</th>
-                      <th>操作</th>
+                      <th>留言人</th>
+                      <th>内容</th>
+                      <th>回复</th>
+                      <th>留言时间</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -293,11 +293,15 @@
                                    value="${item.id}"><span></span>
                           </label>
                         </td>
-                        <td>${item.name}</td>
+                        <td>${item.user.name}</td>
+                        <td>${item.cont}</td>
+                        <td>${item.recont}</td>
+                        <td>${item.createTime}</td>
                         <td>
                           <div class="btn-group">
                             <a class="btn btn-xs btn-default"
-                               href="/admin/ZrType/edit/${item.id}" title="编辑"
+                               href="javascript:void(0);"
+                               onclick="reply(${item.id})" title="回复"
                                data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
                             <a class="btn btn-xs btn-default" href="javascript:void(0);"
                                onclick="del(${item.id})" title="删除"
@@ -330,6 +334,84 @@
 <script src="/js/jconfirm/jquery-confirm.min.js"></script>
 <script type="text/javascript">
 
+  function reply(id) {
+    $.confirm({
+      title: '提示',
+      content: '' +
+              '<form action="" class="formName">' +
+              '<div class="form-group">' +
+              '<label>请输入回复内容</label>' +
+              '<input type="text" placeholder="回复内容" class="recont form-control" required />' +
+              '</div>' +
+              '</form>',
+      buttons: {
+        formSubmit: {
+          text: '提交',
+          btnClass: 'btn-blue',
+          action: function () {
+            var recont = this.$content.find('.recont').val();
+            if(!recont){
+              $.alert('请您录入回复内容');
+              return false;
+            }
+
+            $.ajax({
+              type:"POST",
+              url:"/admin/messages/reply",
+              data:{
+                "id": id,
+                "recont": recont
+              },
+              async:false,
+              dataType:"json",
+              success:function(data){
+                if (data.success) {
+                  $.confirm({
+                    title: '成功',
+                    content: data.message,
+                    type: 'green',
+                    buttons: {
+                      close: {
+                        text: '关闭',
+                      }
+                    }
+                  });
+                  window.location.href = "/admin/messages/messages";
+                }else {
+                  $.confirm({
+                    title: '警告',
+                    content: data.message,
+                    type: 'orange',
+                    typeAnimated: false,
+                    buttons: {
+                      close: {
+                        text: '关闭',
+                      }
+                    }
+                  });
+                }
+              },
+              error:function(w, e, q){
+                console.log(q)
+              }
+            });
+
+          }
+        },
+        cancel: {
+          text: '取消'
+        },
+      },
+      onContentReady: function () {
+        var jc = this;
+        this.$content.find('form').on('submit', function (e) {
+          e.preventDefault();
+          jc.$$formSubmit.trigger('click');
+        });
+      }
+    });
+  }
+
   function search() {
     $("#search-form").submit()
   }
@@ -354,7 +436,7 @@
             action: function () {
               $.ajax({
                 type: "POST",
-                url: "/admin/ZrType/deleteBatch",
+                url: "/admin/messages/deleteBatch",
                 data: {
                   "ids": checkboxValues
                 },
@@ -370,7 +452,7 @@
                           text: '确认',
                           btnClass: 'btn-primary',
                           action: function () {
-                            window.location.href = "/admin/ZrType/ZrType";
+                            window.location.href = "/admin/messages/messages";
                           }
                         }
                       }
@@ -405,7 +487,7 @@
           text: '确认',
           btnClass: 'btn-primary',
           action: function () {
-            window.location.href = "/admin/ZrType/delete/" + id;
+            window.location.href = "/admin/messages/delete/" + id;
           }
         },
         cancel: {
