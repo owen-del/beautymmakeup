@@ -66,7 +66,7 @@
             <li> <a href="">待受理订单</a> </li>
             <li> <a href="">待签收订单</a> </li>
             <li> <a href="">历史订单</a> </li>
-            <li> <a href="">商品管理</a> </li>
+            <li> <a href="/admin/goods/goods">商品管理</a> </li>
           </ul>
         </li>
         <li class="nav-item nav-item-has-subnav">

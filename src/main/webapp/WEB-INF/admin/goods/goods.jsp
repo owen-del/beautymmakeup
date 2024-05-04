@@ -69,6 +69,7 @@
                                     </div>
                                 </form>
                                 <div class="toolbar-btn-action">
+                                    <a class="btn btn-danger" href="/admin/goods/add" ><i class="mdi mdi-window-close"></i> 新增</a>
                                     <a class="btn btn-danger" href="javascript:void(0);" onclick="deleteBatch()"><i class="mdi mdi-window-close"></i> 删除</a>
                                 </div>
                             </div>
@@ -107,9 +108,9 @@
                                                 <td>${item.no}</td>
                                                 <td>${item.name}</td>
                                                 <td>${item.category.name}</td>
-                                                <td>36</td>
-                                                <td><font class="text-success">正常</font></td>
-                                                <td><font class="text-success">正常</font></td>
+                                                <td>${item.price}</td>
+                                                <td><font class="text-success">${item.status}</font></td>
+                                                <td><font class="text-success">${item.stars}</font></td>
                                                 <td>
                                                     <div class="btn-group">
                                                         <a class="btn btn-xs btn-default" href="/admin/goods/details/${item.id}" title="查看"
@@ -117,6 +118,12 @@
                                                         <a class="btn btn-xs btn-default" href="javascript:void(0);"
                                                            onclick="del(${item.id})" title="删除"
                                                            data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                                        <a class="btn btn-xs btn-default" href="/admin/goods/lockOrUpGoods/${item.id}"
+                                                           style="${item.user.id == sessionScope.loginUser.id ? "" : "display: none"}" title="${item.status == "上架" ? "下架": "上架"}"
+                                                           data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                                        <a class="btn btn-xs btn-default" href="/admin/goods/edit/${item.id}"
+                                                           style="${item.user.id == sessionScope.loginUser.id ? "" : "display: none"}" title="编辑"
+                                                           data-toggle="tooltip"><i class="mdi mdi-screwdriver"></i></a>
                                                     </div>
                                                 </td>
                                             </tr>
