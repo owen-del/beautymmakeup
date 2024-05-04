@@ -67,6 +67,8 @@
                         </li>
                     </ul>
                 </nav>
+
+
             </div>
 
         </aside>
@@ -246,37 +248,19 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="form-group col-md-6">
-                                    <label for="user.name">发布人</label>
-                                    <input type="text" class="form-control" id="user.name" name="user.name" value="${goods.user.name}" placeholder="发布人" />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="no">商品编号</label>
-                                    <input type="text" class="form-control" id="no" name="no" value="${goods.no}" placeholder="商品编号" />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="name">商品名称</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="${goods.name}" placeholder="商品名称" />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="category.name">大类</label>
-                                    <input type="text" class="form-control" id="category.name" name="category.name" value="${goods.category.name}" placeholder="大类" />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="price">单价</label>
-                                    <input type="text" class="form-control" id="price" name="price" value="${goods.price}" placeholder="单价" />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="status">上架状态</label>
-                                    <input type="text" class="form-control" id="status" name="status" value="${goods.status}" placeholder="上架状态" />
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="stars">评分</label>
-                                    <input type="text" class="form-control" id="stars" name="stars" value="${goods.stars}" placeholder="评分" />
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);return false;">返 回</button>
-                                </div>
+
+                                <form action="/admin/ZrType/saveOrUpdate" method="post" class="row">
+                                    <input type="hidden" value="${zrType.id}" name="id" id="id">
+                                    <div class="form-group col-md-12">
+                                        <label for="name">类别名称</label>
+                                        <input type="text" class="form-control" id="name" name="name" value="${zrType.name}" placeholder="类别名称" />
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <button type="submit" class="btn btn-primary ajax-post" target-form="add-form">确 定</button>
+                                        <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);return false;">返 回</button>
+                                    </div>
+                                </form>
+
                             </div>
                         </div>
                     </div>
@@ -284,6 +268,7 @@
                 </div>
             </div>
         </main>
+        <!--End 页面主要内容-->
     </div>
 </div>
 
