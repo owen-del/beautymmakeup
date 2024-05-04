@@ -67,8 +67,6 @@
                         </li>
                     </ul>
                 </nav>
-
-
             </div>
 
         </aside>
@@ -86,7 +84,7 @@
                             <span class="lyear-toggler-bar"></span>
                             <span class="lyear-toggler-bar"></span>
                         </div>
-                        <span class="navbar-page-title"> 商品管理 </span>
+                        <span class="navbar-page-title"> ${op} </span>
                     </div>
 
                     <ul class="topbar-right">
@@ -244,91 +242,48 @@
         <!--页面主要内容-->
         <main class="lyear-layout-content">
             <div class="container-fluid">
-
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-toolbar clearfix">
-                                <form class="pull-right search-bar" method="get" action="/admin/goods/goods" role="form">
-                                    <div class="input-group">
-                                        <div class="input-group-btn">
-                                            <input type="hidden" name="search_field" id="search-field" value="title">
-                                            <button class="btn btn-default dropdown-toggle" id="search-btn"
-                                                    data-toggle="dropdown" type="button" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                商品名称 <span class="caret"></span>
-                                            </button>
-                                        </div>
-                                        <input type="text" class="form-control" value="" name="name" onchange="search()"
-                                               placeholder="请输入名称">
-                                    </div>
-                                </form>
-                                <div class="toolbar-btn-action">
-                                    <a class="btn btn-danger" href="javascript:void(0);" onclick="deleteBatch()"><i class="mdi mdi-window-close"></i> 删除</a>
-                                </div>
-                            </div>
                             <div class="card-body">
-
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                        <tr>
-                                            <th>
-                                                <label class="lyear-checkbox checkbox-primary">
-                                                    <input type="checkbox" id="check-all"><span></span>
-                                                </label>
-                                            </th>
-                                            <th>发布人</th>
-                                            <th>商品编号</th>
-                                            <th>商品名称</th>
-                                            <th>大类</th>
-                                            <th>单价</th>
-                                            <th>上架状态</th>
-                                            <th>评分</th>
-                                            <th>操作</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        <c:forEach var="item" items="${list}">
-                                            <tr>
-                                                <td>
-                                                    <label class="lyear-checkbox checkbox-primary">
-                                                        <input type="checkbox" name="ids"
-                                                               value="${item.id}"><span></span>
-                                                    </label>
-                                                </td>
-                                                <td>${item.user.id} [${item.user.name}]</td>
-                                                <td>${item.no}</td>
-                                                <td>${item.name}</td>
-                                                <td>${item.category.name}</td>
-                                                <td>36</td>
-                                                <td><font class="text-success">正常</font></td>
-                                                <td><font class="text-success">正常</font></td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <a class="btn btn-xs btn-default" href="/admin/goods/details/${item.id}" title="查看"
-                                                           data-toggle="tooltip"><i class="mdi mdi-eye"></i></a>
-                                                        <a class="btn btn-xs btn-default" href="javascript:void(0);"
-                                                           onclick="del(${item.id})" title="删除"
-                                                           data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </c:forEach>
-                                        </tbody>
-                                    </table>
+                                <div class="form-group col-md-6">
+                                    <label for="user.name">发布人</label>
+                                    <input type="text" class="form-control" id="user.name" name="user.name" value="${goods.user.name}" placeholder="发布人" />
                                 </div>
-
+                                <div class="form-group col-md-6">
+                                    <label for="no">商品编号</label>
+                                    <input type="text" class="form-control" id="no" name="no" value="${goods.no}" placeholder="商品编号" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="name">商品名称</label>
+                                    <input type="text" class="form-control" id="name" name="name" value="${goods.name}" placeholder="商品名称" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="category.name">大类</label>
+                                    <input type="text" class="form-control" id="category.name" name="category.name" value="${goods.category.name}" placeholder="大类" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="price">单价</label>
+                                    <input type="text" class="form-control" id="price" name="price" value="${goods.price}" placeholder="单价" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="status">上架状态</label>
+                                    <input type="text" class="form-control" id="status" name="status" value="${goods.status}" placeholder="上架状态" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="stars">评分</label>
+                                    <input type="text" class="form-control" id="stars" name="stars" value="${goods.stars}" placeholder="评分" />
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);return false;">返 回</button>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
-
             </div>
         </main>
-        <!--End 页面主要内容-->
     </div>
 </div>
 
@@ -338,94 +293,6 @@
 <script type="text/javascript" src="/js/main.min.js"></script>
 <script src="/js/jconfirm/jquery-confirm.min.js"></script>
 <script type="text/javascript">
-
-    /**
-     * 查询
-     */
-    function search() {
-        $("#search-form").submit()
-    }
-
-
-    /**
-     * 批量删除
-     */
-    function deleteBatch() {
-        var checkboxValues = $("input[type='checkbox'][name='ids']:checked").map(function () {
-            return $(this).val();
-        }).get();
-        if (checkboxValues.length > 0) {
-
-            $.alert({
-                title: '删除',
-                content: "确定要这删除这" + checkboxValues.length + "条数据吗吗？",
-                buttons: {
-                    confirm: {
-                        text: '确认',
-                        btnClass: 'btn-primary',
-                        action: function () {
-                            $.ajax({
-                                type: "POST",
-                                url: "/admin/goods/deleteBatch",
-                                data: {
-                                    "ids": checkboxValues
-                                },
-                                async: false,
-                                dataType: "json",
-                                success: function (data) {
-                                    if (data.success) {
-                                        $.alert({
-                                            title: '信息',
-                                            content: data.message,
-                                            buttons: {
-                                                confirm: {
-                                                    text: '确认',
-                                                    btnClass: 'btn-primary',
-                                                    action: function () {
-                                                        window.location.href = "/admin/goods/goods";
-                                                    }
-                                                }
-                                            }
-                                        });
-
-                                    }
-                                },
-                                error: function (e) {
-                                    console.log(e)
-                                }
-                            });
-                        }
-                    },
-                    cancel: {
-                        text: '取消',
-                        action: function () {
-
-                        }
-                    }
-                }
-            });
-
-        }
-    }
-
-    function del(id) {
-        $.alert({
-            title: '删除',
-            content: '确定要删除吗？',
-            buttons: {
-                confirm: {
-                    text: '确认',
-                    btnClass: 'btn-primary',
-                    action: function () {
-                        window.location.href = "/admin/goods/delete/" + id;
-                    }
-                },
-                cancel: {
-                    text: '取消'
-                }
-            }
-        });
-    }
 </script>
 </body>
 </html>
