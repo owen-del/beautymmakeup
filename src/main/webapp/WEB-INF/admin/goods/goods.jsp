@@ -120,7 +120,7 @@
                                                            data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
                                                         <a class="btn btn-xs btn-default" href="/admin/goods/lockOrUpGoods/${item.id}"
                                                            style="${item.user.id == sessionScope.loginUser.id ? "" : "display: none"}" title="${item.status == "上架" ? "下架": "上架"}"
-                                                           data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                                           data-toggle="tooltip"><i class="mdi ${item.status == "上架" ? "mdi-arrow-down": "mdi-arrow-up"}"></i></a>
                                                         <a class="btn btn-xs btn-default" href="/admin/goods/edit/${item.id}"
                                                            style="${item.user.id == sessionScope.loginUser.id ? "" : "display: none"}" title="编辑"
                                                            data-toggle="tooltip"><i class="mdi mdi-screwdriver"></i></a>
