@@ -123,4 +123,40 @@ public class ProsorderController {
         return prosorderService.waitAcceptancehandle(prosorder);
     }
 
+
+
+
+    /**
+     * 待签收订单
+     * @param orderno
+     * @param request
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/waitSign", method = RequestMethod.GET)
+    public ModelAndView waitSign(@RequestParam(value = "orderno", defaultValue = "") String orderno, HttpServletRequest request, ModelAndView modelAndView) {
+        User loginUser = (User) request.getSession().getAttribute("loginUser");
+        List<String> fshstatus = new ArrayList<>();
+        fshstatus.add("已发货");
+        List<Prosorder> prosorderList = prosorderService.findLikeByOrderno(loginUser, fshstatus,orderno);
+        modelAndView.setViewName("/admin/waitSign/waitSign");
+        modelAndView.addObject("list", prosorderList);
+        return modelAndView;
+    }
+
+    /**
+     * 待签收订单详情
+     * @param id
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/waitSignDetails/{id}", method = RequestMethod.GET)
+    public ModelAndView waitSignDetails(@PathVariable("id") Long id, ModelAndView modelAndView) {
+        Prosorder prosorder = prosorderService.findById(id);
+        modelAndView.setViewName("/admin/waitSign/details");
+        modelAndView.addObject("prosorder", prosorder);
+        modelAndView.addObject("op", "订单详情");
+        return modelAndView;
+    }
+
 }
