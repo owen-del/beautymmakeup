@@ -410,7 +410,6 @@
 		nextArrow:
 			'<button type="button" class="slick-next"><i class="fa-regular fa-chevron-right"></i></button>',
 		appendArrows: $(".review-slider-navigation"),
-		slidesToShow: 1,
 		slidesToScroll: 1,
 		responsive: [
 			{
