@@ -1,0 +1,54 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  CAROUSEL CSS START
+/*----------------------------------------*/
+.navigation__wrapprer {
+	margin-top: 60px;
+}
+.banner-3-dots {
+    position: absolute;
+    top: 40%;
+    right: 55px;
+    z-index: 55;
+    transform: translateY(-50%);
+    @media #{$xs} {
+        position: inherit;
+        transform: inherit;
+    }
+}
+.banner-dot-3 {
+	flex-direction: column;
+	gap: 16px;
+	.swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        background: var(--clr-theme-secondary);
+        opacity: 1;
+        border-radius: 30px;
+        position: relative;
+		&.swiper-pagination-bullet-active {
+			background: var(--clr-theme-primary);
+		}
+	}
+}
+// Common swiper dot
+.bd-swiper-dot {
+	display: inline-flex;
+    align-items: center;
+    justify-content: center;
+	gap: 10px;
+    margin-top: 35px;
+	.swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        background: var(--clr-theme-secondary);
+        opacity: 1;
+        border-radius: 30px;
+        position: relative;
+        margin: 0 !important;
+		&.swiper-pagination-bullet-active {
+			background: var(--clr-theme-primary);
+		}
+	}
+}

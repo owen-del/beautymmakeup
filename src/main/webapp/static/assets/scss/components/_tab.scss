@@ -1,0 +1,21 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  TAB CSS START
+/*----------------------------------------*/
+
+.about-tab {
+    & .nav-tabs{
+        padding: 0;
+        margin: 0;
+        border: 0;
+        & .nav-link{
+            padding: 0;
+            margin: 0;
+            border: 0;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
+}
+

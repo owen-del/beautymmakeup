@@ -1,0 +1,71 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  FAQ CSS START
+/*----------------------------------------*/
+.faq__content {
+	padding-right: 50px;
+	@media #{$xs,$sm,$md,$lg,$xl} {
+		padding-right: 0;
+	}
+}
+.bd__faq {
+.accordion-button {
+    font-size: 24px;
+    padding: 30px 30px 30px 30px;
+    font-weight: 500;
+		@media #{$xxs, $lg} {
+			font-size: 20px;;
+		}
+		&:focus {
+			box-shadow: none;
+		}
+		&:not(.collapsed) {
+            background: rgba(3, 175, 229, 0.1);
+            box-shadow: none;
+			&::after {
+				border-color: transparent;
+				background: var(--clr-theme-primary);
+				color: var(--clr-common-white);
+			}
+		}
+		&::after {
+			position: absolute;
+			right: 30px;
+			content: "\f107";
+			background-image: none;
+			font-family: var(--bd-ff-fontawesome);
+			font-size: 18px;
+			font-weight: 400;
+			height: 46px;
+			width: 46px;
+			border: 1px solid var(--clr-border-primary);
+			line-height: 46px;
+			border-radius: 50%;
+			text-align: center;
+			color: var(--clr-text-primary);
+			@media #{$xxs, $lg} {
+				left: 20px;
+			} 
+		}
+	}
+	.accordion-body {
+        padding-left: 30px;
+        padding-top: 0;
+        padding-bottom: 35px;
+        padding-right: 30px;
+        background: rgba(3, 175, 229, 0.1);
+        border-radius: 0;
+		> P {
+			margin-bottom: 0;
+		}
+	}
+	.accordion-item {
+        background: transparent;
+        border: 1px solid var(--clr-border-2);
+        border-radius: 0;
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+	}
+}

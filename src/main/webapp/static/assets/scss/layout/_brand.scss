@@ -1,0 +1,84 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  BRAND CSS START
+/*----------------------------------------*/
+.brand-grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	border-left: 1px solid var(--clr-border-2);
+	align-items: center;
+	@media #{$md} {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@media #{$sm} {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@media #{$xs} {
+		grid-template-columns: 1fr;
+	}
+}
+.brand-item {
+	padding: 50px 0px;
+	text-align: center;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	height: 100%;
+	justify-content: center;
+	border: 1px solid var(--clr-border-2);
+	border-left: 0;
+	@extend %bd-transition;
+	@media #{$xl} {
+		padding: 60px 40px;
+	}
+	@media #{$lg} {
+		padding: 50px 40px;
+	}
+	@media #{$sm,$md} {
+		&:nth-child(1) {
+			border-bottom: 0;
+		}
+		&:nth-child(2) {
+			border-bottom: 0;
+		}
+	}
+	@media #{$sm} {
+		&:nth-child(3) {
+			border-bottom: 0;
+		}
+	}
+	@media #{$xs} {
+	border-bottom: 0;
+		&:last-child {
+			border: 1px solid var(--clr-border-2);
+			border-left: 0;
+		}
+	}
+	&:hover {
+		.brand-thumb {
+			img {
+				opacity: 1;
+			}
+		}
+	}
+}
+.brand-thumb {
+	max-width: 172px;
+	img {
+		width: 100%;
+	}
+}
+
+// Brand style 2
+.brand-item-2 {
+	text-align: center;
+}
+.brand-area-2 {
+	padding: 35px 0;
+}
+.brand-active {
+	.swiper-wrapper {
+		align-items: center;
+	}
+}

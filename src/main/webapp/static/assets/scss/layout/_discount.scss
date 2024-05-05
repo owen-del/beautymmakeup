@@ -1,0 +1,84 @@
+
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  DISCOUNT CSS START
+/*----------------------------------------*/
+.discount-item {
+	background: rgba(3, 175, 229, 0.15);
+	border-radius: 6px;
+	min-height: 335px;
+	position: relative;
+	padding: 35px 25px;
+	@media #{$xxs, $sm, $md, $lg} {
+		min-height: 300px;
+		padding: 30px 25px;
+	}
+	&:hover {
+		.discount-thumb {
+			@include transform(scale(1.05));
+		}
+	} 
+}
+.discount-content {
+	& > span {
+		font-size: 14px;
+		font-weight: 600;
+		text-transform: uppercase;
+		color: var(--clr-theme-secondary);
+		display: block;
+		margin-bottom: 5px;
+	}
+	h3 {
+		font-size: 22px;
+		font-weight: 600;
+    a {
+      &:hover{
+        color: var(--clr-theme-secondary);
+      }
+    }
+	}
+}
+.discount-thumb {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	height: 205px;
+	background-repeat: no-repeat;
+	background-position: center;
+	@extend %bd-transition;
+	img {
+		width: 100%;
+	}
+}
+.discount-slider-navigation {
+	button {
+		height: 60px;
+		width: 60px;
+		background: var(--clr-common-white);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 5;
+		left: -30px;
+		@media #{$xs} {
+			left: 0;
+		}
+		&:hover {
+			background-color: var(--clr-theme-secondary);
+			color: var(--clr-common-white);
+		}
+	}
+	.discount-slider-button-next {
+		left: auto;
+		right: -30px;
+		@media #{$xs} {
+			right: 0;
+		}
+	}
+}

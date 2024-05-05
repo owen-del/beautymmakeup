@@ -1,0 +1,25 @@
+
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  SOCIAL CSS START
+/*----------------------------------------*/
+.theme-social {
+	display: inline-flex;
+	align-items: center;
+	gap: 15px 15px;
+	a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		background: var(--clr-common-white);
+		border-radius: 50%;
+		color: rgb(22, 22, 22);
+        &:hover {
+            background-color: var(--clr-theme-secondary);
+			color: var(--clr-common-white);
+        }
+	}
+}

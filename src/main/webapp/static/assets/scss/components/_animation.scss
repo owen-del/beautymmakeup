@@ -1,0 +1,167 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/* ANIMATION CSS STAR
+/*----------------------------------------*/
+
+@-webkit-keyframes pulse {
+	0% {
+	  -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);
+	}
+	70% {
+		-webkit-box-shadow: 0 0 0 45px rgba(255,255,255, 0);
+	}
+	100% {
+		-webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+	}
+}
+@keyframes pulse {
+0% {
+	-moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);
+	box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);
+}
+70% {
+	-moz-box-shadow: 0 0 0 45px rgba(255,255,255, 0);
+	box-shadow: 0 0 0 45px rgba(255,255,255, 0);
+}
+100% {
+	-moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+	box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+	}
+}
+
+/*======================================
+Animate slide-left 
+========================================*/
+
+@keyframes slide-left {
+	from {
+	  -webkit-transform: translateX(0);
+	  transform: translateX(0);
+	}
+	to {
+	  -webkit-transform: translateX(-100%);
+	  transform: translateX(-100%);
+	}
+}
+
+/*======================================
+Animate card-bounce
+========================================*/
+
+@keyframes card-bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-30px);}
+    60% {transform: translateY(-15px);}
+}
+
+@keyframes hero-circle-1{
+    0%{
+        @include transform(rotate(0deg));
+    }
+    100%{
+        @include transform(rotate(360deg));
+    }
+}
+.quote-animation {
+	animation-duration: 2.5s;
+	animation-fill-mode: both;
+	animation-iteration-count: infinite;
+	animation-name: card-bounce;
+}
+
+/*======================================
+Animate wobble-vertical
+========================================*/
+@-webkit-keyframes wobble-vertical {
+    16.65% {
+        transform: translateY(8px);
+    }
+    33.3% {
+        transform: translateY(-6px);
+    }
+    49.95% {
+        transform: translateY(4px);
+    }
+    66.6% {
+        transform: translateY(-2px);
+    }
+    83.25% {
+        transform: translateY(1px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes wobble-vertical {
+    16.65% {
+        transform: translateY(8px);
+    }
+    33.3% {
+        transform: translateY(-6px);
+    }
+    49.95% {
+        transform: translateY(4px);
+    }
+    66.6% {
+        transform: translateY(-2px);
+    }
+    83.25% {
+        transform: translateY(1px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/*======================================
+Animate wobble-vertical
+========================================*/
+@keyframes shape-rotate {
+	0% {
+	  -webkit-transform: rotate(0deg);
+	  -moz-transform: rotate(0deg);
+	  -ms-transform: rotate(0deg);
+	  transform: rotate(0deg);
+	}
+	100% {
+	  -webkit-transform: rotate(360deg);
+	  -moz-transform: rotate(360deg);
+	  -ms-transform: rotate(360deg);
+	  transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes rotateCircle {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes rotateCircle {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  .rotate-circle {
+	-webkit-animation-name: rotateCircle;
+	animation-name: rotateCircle;
+	-webkit-animation-duration: 20s;
+	animation-duration: 20s;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+}

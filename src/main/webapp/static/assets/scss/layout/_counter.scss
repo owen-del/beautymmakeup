@@ -1,0 +1,93 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  COUNTER CSS START
+/*----------------------------------------*/
+
+.counter-wrapper {
+	padding: 60px 0;
+	border: 1px solid rgba(3, 175, 229, 0.20);
+}
+.counter-item {
+	position: relative;
+	text-align: center;
+	&:after {
+		position: absolute;
+		content: "";
+		height: 60px;
+		width: 1px;
+		background: rgba(3, 175, 229, 0.2);
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+		@media #{$xs,$sm} {
+			display: none;
+		}
+	}
+}
+div[class*="col"]:last-child {
+	.counter-item {
+		&::after {
+			display: none;
+		}
+	}
+}
+.counter-content {
+	h2 {
+		color: var(--clr-theme-primary);
+		margin-bottom: 10px;
+		line-height: 1;
+		@media #{$xxs} {
+			font-size: 40px;
+		}
+	}
+	h5 {
+		font-size: 18px;
+	}
+}
+
+// Counter style 2
+.counter-content-2 {
+	& > p {
+		margin-bottom: 0;
+		color: var(--clr-common-white);
+	}
+	h2,span {
+		font-size: 64px;
+		font-weight: 500;
+		color: var(--clr-common-white);
+		display: inline-block;
+		line-height: 1;
+		margin-bottom: 10px;
+		@media #{$md} {
+			font-size: 50px;
+		}
+		@media #{$xxs, $sm, $lg} {
+			font-size: 40px;
+		}
+	}
+}
+.counter-item-2 {
+	position: relative;
+	text-align: center;
+	&:after {
+		position: absolute;
+		content: "";
+		height: 90px;
+		width: 1px;
+		background: rgba(255, 255, 255, 0.20);
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+		@media #{$xs,$sm} {
+			display: none;
+		}
+	}
+}
+div[class*="col"]:last-child {
+	.counter-item-2 {
+		&::after {
+			display: none;
+		}
+	}
+}

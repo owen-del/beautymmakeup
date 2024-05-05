@@ -1,0 +1,59 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/* 	BENEFIT CSS START
+/*----------------------------------------*/
+.benefit-item {
+	padding: 0 25px;
+	@media #{$lg,$xl} {
+		padding: 0;
+	}
+}
+.benefit-content-wrap {
+	padding-right: 85px;
+	@media #{$xs,$sm,$md,$lg,$xl} {
+		padding-right: 0;
+	}
+	p {
+		max-width: 500px;
+	}
+}
+.benefit-round {
+	margin-bottom: 20px;
+	background: var(--clr-theme-primary);
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	h3 {
+		color: var(--clr-common-white);
+	}
+}
+.benefit-count {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 40px;
+	height: 40px;
+	background: var(--clr-theme-secondary);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	color: var(--clr-common-white);
+}
+.benefit-content {
+	h3 {
+		font-size: 22px;
+		margin-bottom: 15px;
+		@media #{$lg} {
+			font-size: 20px;
+		}
+	}
+	p {
+		margin-bottom: 0;
+	}
+}

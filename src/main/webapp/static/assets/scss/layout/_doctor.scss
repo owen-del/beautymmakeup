@@ -1,0 +1,265 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  DOCTOR CSS START
+/*----------------------------------------*/
+.doctor-item {
+    padding: 40px 40px;
+    background: rgba(237, 249, 253, 1);
+    @extend %bd-transition;
+    @media #{$xxs,$md,$lg} {
+        padding: 30px 30px;
+    } 
+    &:hover {
+        background-color: var(--clr-theme-primary);
+        .doctor-content {
+            h4 {
+                color: var(--clr-common-white);
+            }
+            span {
+                color: var(--clr-common-white);
+            }
+        }
+        .doctor-social {
+            a {
+                color: rgba(255, 255, 255, 0.69);
+            }
+        }
+    }
+}
+.doctor-content {
+    margin-bottom: 20px;
+	h4 {
+		margin-bottom: 10px;
+        @media #{$xxs} {
+            font-size: 22px;
+        }
+        a {
+            &:hover {
+                color: var(--clr-theme-secondary);
+            }
+        }
+	}
+	span {
+		color: rgba(235, 117, 59, 1);
+	}
+}
+.doctor-social {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	a {
+        width: 45px;
+        height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--clr-border-2);
+        border-radius: 50%;
+        &:hover {
+            background-color: var(--clr-theme-secondary);
+            border-color: transparent;
+        }
+	}
+}
+.doctor-thumb {
+    max-width: 220px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    img {
+        width: 100%;
+        border-radius: 50%;
+        border: 5px solid var(--clr-common-white);
+    }
+}
+
+// Doctor style 2
+.doctor-card {
+	position: absolute;
+	bottom: 15px;
+	width: calc(100% - 40px);
+	background: var(--clr-common-white);
+	left: 50%;
+	transform: translateX(-50%);
+    padding: 20px 20px;
+    @extend %bd-transition;
+    .doctor-title {
+        margin-bottom: 5px;
+    }
+    span {
+		color: var(--clr-theme-secondary);
+	}
+}
+.doctor-item-2 {
+	&:hover {
+		.doctor-card {
+			opacity: 0;
+			visibility: hidden;
+            bottom: -20px;
+		}
+		.doctor-card-2 {
+			bottom: 20px;
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+.doctor-card-2 {
+    position: absolute;
+    bottom: -50px;
+    width: calc(100% - 40px);
+    background: var(--clr-theme-primary);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 25px 20px 25px;
+    opacity: 0;
+    visibility: hidden;
+    @extend %bd-transition;
+    .doctor-title {
+        color: var(--clr-common-white);
+        margin-bottom: 5px;
+        a {
+            &:hover {
+                color: var(--clr-theme-secondary);
+            }
+        }
+    }
+    span {
+		color: var(--clr-common-white);
+        margin-bottom: 15px;
+        display: inline-block;
+	}
+    .doctor-social {
+        a {
+            color: var(--clr-common-white);
+            border-color: var(--clr-common-white);
+            &:hover {
+                border-color: transparent;
+            }
+        }
+    }
+}
+// Doctor style 3
+.doctor-item-3 {
+    &:hover {
+        .doctor-social-3 {
+            opacity: 1;
+            visibility: visible;
+            bottom: 0;
+        }
+        .doctor-thumb-3 {
+            img {
+                @include transform(scale(1.05))
+            }
+        }
+    }
+}
+.doctor-thumb-3 {
+    img {
+        @include transform(scale(1))
+    }
+}
+.doctor-social-3 {
+	background: var(--clr-theme-primary);
+	display: inline-flex;
+	padding: 15px 15px;
+	gap: 10px;
+	flex-direction: column;
+	border-radius: 40px 40px 0px 40px;
+	position: absolute;
+	right: 0;
+	bottom: -50px;
+    opacity: 0;
+    visibility: hidden;
+    @extend %bd-transition;
+    ul {
+		li {
+			list-style: none;
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+			a {
+				width: 40px;
+				height: 40px;
+				border: 1px solid var(--clr-common-white);
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 50%;
+				color: var(--clr-common-white);
+                &:hover {
+                    color: var(--clr-common-white);
+                    background-color: var(--clr-theme-secondary);
+                    border-color: transparent;
+                }
+			}
+		}
+	}
+}
+
+// Doctor profile style
+.doctor-skill {
+	padding-right: 80px;
+    @media #{$xs,$sm,$md} {
+        padding-right: 0;
+    }
+}
+// Doctor author
+.doctor-author-content {
+	padding-left: 40px;
+    @media #{$xs, $sm, $md} {
+        padding-left: 0;
+    }
+}
+.doctor-author {
+    display: grid;
+    grid-template-columns: auto auto;
+    border-top: 1px solid var(--clr-border-2);
+    border-left: 1px solid var(--clr-border-2);
+    @media #{$xs} {
+        grid-template-columns: auto;
+    }
+}
+.doctor-author-info {
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    padding: 25px 25px;
+    border-bottom: 1px solid var(--clr-border-2);
+    border-right: 1px solid var(--clr-border-2);
+    .content {
+        h5 {
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+        span {
+            color: var(--clr-text-body);
+            a {
+                &:hover {
+                    color: var(--clr-theme-primary);
+                }
+            }
+        }
+    }
+}
+.author-social {
+    position: absolute;
+    bottom: 30px;
+    padding: 25px 30px;
+    background: var(--clr-theme-primary);
+    border-radius: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    gap: 7px;
+	a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		background: var(--clr-common-white);
+		border-radius: 50%;
+		color: rgb(22, 22, 22);
+	}
+}

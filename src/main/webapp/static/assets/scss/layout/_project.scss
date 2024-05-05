@@ -1,0 +1,136 @@
+@use "../utils" as *;
+
+/*----------------------------------------*/
+/*  PROJECT CSS START
+/*----------------------------------------*/
+
+// Project style
+.project-item {
+	position: relative;
+	@extend %bd-transition;
+	&:before {
+		position: absolute;
+		content: "";
+		height: 100%;
+		width: 100%;
+		background: linear-gradient(0deg, #b18b5e 0%, rgba(235, 117, 59, 0) 100%);
+		top: 0;
+		left: 0;
+		opacity: 0;
+		@extend %bd-transition;
+	}
+	&:hover {
+		.project-content-inner {
+			opacity: 1;
+			visibility: visible;
+			top: auto;
+			bottom: 0;
+		}
+		&::before {
+			opacity: 1;
+		}
+	}
+}
+.project-content-inner {
+	display: flex;
+	align-items: end;
+	justify-content: space-between;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	bottom: -50px;
+	left: 0;
+	padding: 30px 30px;
+	opacity: 0;
+	visibility: hidden;
+	@extend %bd-transition;
+	@media #{$xxs,$xl} {
+		padding: 25px 25px;
+	}
+}
+.project-content {
+	span {
+		margin-bottom: 5px;
+		display: block;
+		color: var(--clr-common-white);
+	}
+	h4 {
+		font-size: 22px;
+		color: var(--clr-common-white);
+		@media #{$xxs,$xl} {
+			font-size: 20px;
+		}
+	}
+}
+.swiper {
+	&.project-active {
+		margin-right: -300px;
+		@media #{$xs} {
+			margin-right: 0;
+		}
+	}
+}
+.project-details-bg {
+	position: absolute;
+	height: 525px;
+	width: 100%;
+	background: var(--clr-bg-1);
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	@media #{$sm,$md} {
+		height: 350px;
+	}
+	@media #{$xs} {
+		height: 100%;
+	}
+}
+.portfolio-meta-item {
+	display: flex;
+	align-items: start;
+	gap: 10px;
+	justify-content: center;
+	@media #{$xs,$sm,$md} {
+		justify-content: start;
+	}
+}
+.portfolio-meta-icon {
+	span {
+		width: 50px;
+		height: 50px;
+		background: var(--clr-theme-primary);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+	}
+}
+.portfolio-meta-content {
+	p {
+		margin-bottom: 0;
+	}
+	h4 {
+		font-size: 20px;
+		margin-bottom: 5px;
+	}
+}
+
+.portfolio__info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 20px;
+	padding: 20px 0;
+	border-top: 1px solid #e3e3e3;
+	border-bottom: 1px solid #e3e3e3;
+	li {
+		font-weight: 500;
+		color: #0f0d1d;
+		list-style: none;
+		span {
+			color: #b18b5e;
+			font-weight: 400;
+		}
+	}
+}

@@ -1,0 +1,55 @@
+
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  FEATURES CSS START
+/*----------------------------------------*/
+.features-item {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	&:hover {
+		.features-icon {
+			span {
+				img {
+					animation-name: wobble-vertical;
+					animation-duration: 1s;
+					animation-timing-function: ease-in-out;
+					animation-iteration-count: 1;
+				}
+			}
+		}
+	}
+}
+.features-icon {
+	span {
+		width: 90px;
+		line-height: 90px;
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+		border-radius: 68px;
+		display: inline-block;
+		text-align: center;
+		padding: 30px 0;
+		@media #{$xxs} {
+			width: 80px;
+			line-height: 60px;
+			padding: 20px 0;
+			img {
+				max-width: 36px;
+			}
+		}
+	}
+}
+.features-content {
+	h4 {
+		margin-bottom: 15px;
+		color: var(--clr-common-white);
+		@media #{$xxs,$lg} {
+			font-size: 20px;
+		}
+	}
+	p {
+		margin-bottom: 0;
+		color: var(--clr-common-white);
+	}
+}

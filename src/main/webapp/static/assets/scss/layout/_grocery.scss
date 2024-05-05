@@ -1,0 +1,619 @@
+@use "../utils" as *;
+
+/*----------------------------------------*/
+/*  Grocery CSS START
+/*----------------------------------------*/
+.grocery-clr {
+	color: var(--clr-theme-grocery) !important;
+}
+.grocery-bg {
+	background-color: var(--clr-theme-grocery) !important;
+}
+
+.grocery-clr-hover {
+	&:hover {
+		color: var(--clr-theme-grocery) !important;
+	}
+}
+
+.grocery-bg-hover {
+	&:hover {
+		background-color: var(--clr-theme-grocery) !important;
+	}
+}
+
+.transition-grocery {
+	transition: all 0.3s 0s ease-out;
+}
+
+// Grocery style area start ***
+.grocery {
+	&__offcanvas-info {
+		.offcanvas__contact ul li:hover i {
+			border-color: var(--clr-theme-grocery) !important;
+			background-color: var(--clr-theme-grocery) !important;
+		}
+		.offcanvas__social {
+			ul {
+				li {
+					a {
+						color: var(--clr-theme-grocery);
+						&:hover {
+							border: 1px solid var(--clr-theme-grocery);
+							background-color: var(--clr-theme-grocery);
+							color: var(--clr-common-white);
+						}
+					}
+				}
+			}
+		}
+	}
+	&__menu {
+		.main-menu {
+			ul {
+				li {
+					a {
+						color: var(--clr-common-heading);
+						&:hover {
+							color: var(--clr-theme-grocery) !important;
+						}
+					}
+				}
+			}
+			.submenu {
+				li {
+					&:hover {
+						a {
+							background-color: var(--clr-theme-grocery) !important;
+							color: var(--clr-common-white) !important;
+						}
+					}
+				}
+			}
+		}
+	}
+	&-icon {
+		width: 44px;
+		height: 44px;
+		line-height: 44px;
+		text-align: center;
+		color: var(--clr-common-white);
+		background-color: var(--clr-theme-grocery);
+		border-radius: 50%;
+	}
+	&-category {
+		button {
+			border: 1px solid var(--clr-theme-grocery) !important;
+		}
+		&__item {
+			text-align: center;
+			padding: 30px;
+			border: 1px solid #16161614;
+			transition: all 0.3s 0s ease-out;
+			&:hover {
+				border: 1px solid var(--clr-theme-grocery);
+			}
+			h6 {
+				margin-top: 20px;
+				margin-bottom: 10px;
+				a {
+					&:hover {
+						color: var(--clr-theme-grocery);
+					}
+				}
+			}
+			.icon {
+				width: 66px;
+				height: 66px;
+				line-height: 66px;
+				margin: 0 auto;
+				text-align: center;
+				background-color: #80b5011a;
+				border: 1px dashed var(--clr-theme-grocery);
+				border-radius: 50%;
+			}
+		}
+	}
+	&-banner {
+		&-area {
+			.banner-dot .swiper-pagination-bullet.swiper-pagination-bullet-active {
+				background-color: var(--clr-theme-grocery);
+			}
+			.banner-discout-tag {
+				position: absolute;
+				top: -12%;
+				right: 15%;
+			}
+		}
+	}
+	&__btn-group {
+		.solid-btn {
+			background-color: var(--clr-theme-grocery);
+			border: 1px solid var(--clr-theme-grocery);
+			text-transform: uppercase;
+			&:hover {
+				background-color: transparent !important;
+				color: var(--clr-theme-grocery);
+				span {
+					color: var(--clr-theme-grocery);
+				}
+			}
+		}
+		.border__btn-banner {
+			&:hover {
+				background-color: var(--clr-theme-grocery);
+				color: var(--clr-common-white);
+				span {
+					color: var(--clr-common-white);
+				}
+			}
+		}
+	}
+	&__content {
+		p {
+			max-width: 500px;
+		}
+		span {
+			background: #80b5011a;
+		}
+	}
+	&__product {
+		border: none;
+		.product-thumb {
+			@media screen and (max-width: 425px) {
+				padding: 60px 30px 40px;
+			}
+		}
+		.product-action-item {
+			margin-top: 0;
+			opacity: 0;
+			visibility: hidden;
+			transform: rotateX(-90deg);
+			transition: all 0.3s 0s ease-out;
+		}
+		.product-content {
+			border-top: none;
+			padding: 0;
+			.product-new-price {
+				color: var(--clr-theme-grocery) !important;
+			}
+		}
+		.product-action-btn {
+			background-color: var(--clr-theme-grocery);
+		}
+		.product-title {
+			text-transform: capitalize;
+			a {
+				&:hover {
+					color: var(--clr-theme-grocery);
+				}
+			}
+		}
+		.product-trending {
+			background-color: var(--clr-theme-grocery);
+		}
+		.user-rating {
+			i {
+				font-size: 15px;
+				color: #e8c54a;
+			}
+		}
+		.product-thumb {
+			padding-bottom: 30px;
+		}
+		&:hover {
+			.product-action-item {
+				opacity: 1;
+				visibility: visible;
+				transform: rotate(0);
+			}
+		}
+	}
+	&__navigation {
+		button {
+			border: 5px solid var(--clr-common-white);
+			&:hover {
+				background-color: var(--clr-theme-grocery);
+				color: var(--clr-common-white);
+			}
+		}
+	}
+	&__blog-item {
+		.round-link {
+			background: rgba(2, 175, 227, 0.2);
+			color: var(--clr-theme-grocery);
+		}
+		.round-link:hover {
+			background: var(--clr-theme-grocery);
+			color: var(--clr-common-white);
+		}
+	}
+	&-seller {
+		&__item {
+			display: flex;
+			align-items: center;
+			gap: 30px;
+			.fs-image {
+				width: 170px;
+				img {
+					width: 100%;
+				}
+			}
+			.fs-content {
+				h5 {
+					a {
+						&:hover {
+							color: var(--clr-theme-grocery);
+						}
+					}
+				}
+				span {
+					color: var(--clr-theme-grocery);
+					padding: 5px 0;
+					display: inline-block;
+					font-weight: 500;
+				}
+			}
+		}
+	}
+	&-testimonial {
+		button {
+			border: 1px solid var(--clr-theme-grocery);
+			color: var(--clr-theme-grocery);
+			&:hover {
+				background-color: var(--clr-theme-grocery);
+			}
+		}
+		&__item {
+			padding: 40px;
+			background-color: var(--clr-common-white);
+			.ft-head {
+				margin-bottom: 20px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				h5 {
+					margin-top: 5px;
+					margin-bottom: 2px;
+				}
+			}
+			p {
+				margin: 0;
+			}
+		}
+	}
+	&-service {
+		&__item {
+			display: flex;
+			align-items: center;
+			gap: 20px;
+			p {
+				margin: 0;
+				font-size: 14px;
+			}
+		}
+	}
+	&-off {
+		&__item {
+			padding: 70px 40px;
+			.fo-discount {
+				display: inline-block;
+				font-weight: 500;
+				color: var(--clr-theme-grocery);
+				margin-bottom: 10px;
+			}
+			.solid-btn {
+				background-color: var(--clr-theme-grocery);
+				padding: 12px 36px;
+				&:hover {
+					opacity: 0.8;
+				}
+			}
+		}
+	}
+	&-ad {
+		&__item {
+			padding: 25px;
+			.fad-content {
+				padding: 100px 40px;
+				@media screen and (max-width: 991px) {
+					padding: 30px;
+				}
+				border: 1px solid var(--clr-common-white);
+				h2 {
+					font-weight: 600;
+					line-height: 60px;
+					font-size: 40px;
+				}
+			}
+			.fad-timer {
+				padding: 65px 20px;
+				@media screen and (max-width: 991px) {
+					padding: 30px;
+				}
+			}
+			.countdown-wrapper {
+				ul {
+					justify-content: center;
+					li {
+						background-color: var(--clr-common-white);
+						color: var(--clr-text-secondary);
+						span {
+							color: var(--clr-theme-grocery);
+						}
+					}
+				}
+			}
+		}
+	}
+	&-rating {
+		&__left-item {
+			.frl-item {
+				max-width: 520px;
+				margin-left: 35%;
+				margin-right: 30px;
+				@media screen and (max-width: 1440px) {
+					margin: 30px;
+					max-width: 100%;
+				}
+				.fad-content {
+					padding: 50px;
+					@media screen and (max-width: 575px) {
+						padding: 20px;
+						h2 {
+							font-size: 30px;
+							line-height: 40px;
+						}
+					}
+				}
+			}
+		}
+		&__right-item {
+			position: relative;
+			.rating-dot {
+				position: absolute;
+				top: 45%;
+				left: 25%;
+				cursor: pointer;
+				ul {
+					display: none;
+					position: absolute;
+					top: -180px;
+					left: -80px;
+					padding: 30px;
+					width: 250px;
+					background-color: var(--clr-common-white);
+					transition: all 0.3s 0s ease-out;
+					&::after {
+						position: absolute;
+						bottom: -20px;
+						left: 92px;
+						background-color: var(--clr-common-white);
+						content: "";
+						-webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+						clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+						transform: rotate(54deg);
+						width: 60px;
+						height: 70px;
+					}
+					li {
+						list-style: none;
+						h6 {
+							font-size: 20px;
+						}
+						span {
+							color: var(--clr-theme-grocery);
+							font-weight: 500;
+						}
+					}
+				}
+				&.dot-two {
+					top: 68%;
+					left: 52%;
+					ul {
+						display: block;
+					}
+				}
+				&.dot-three {
+					top: 35%;
+					left: 75%;
+				}
+				&:hover {
+					ul {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+	&-trendy {
+		&__header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			@media screen and (max-width: 991px) {
+				margin-bottom: 30px;
+			}
+		}
+		&__tab {
+			.nav-link {
+				font-size: 16px;
+				color: var(--clr-text-secondary);
+				font-weight: 500;
+				border-bottom: 2px solid transparent;
+				@media screen and (max-width: 575px) {
+					margin-left: 5px;
+					font-size: 12px;
+				}
+				&.active {
+					border-bottom: 2px solid var(--clr-theme-grocery);
+					color: var(--clr-text-secondary);
+					&#collection-tab {
+						position: relative;
+						&::after {
+							content: "8";
+							background-image: url(../../assets/imgs/grocery/icon/tag.png);
+							color: var(--clr-common-white);
+							padding: 2px 14px;
+							position: absolute;
+							right: 0px;
+							margin: 0;
+							top: -25px;
+						}
+					}
+					&#new-tab {
+						position: relative;
+						&::after {
+							content: "5";
+							background-image: url(../../assets/imgs/grocery/icon/tag.png);
+							color: var(--clr-common-white);
+							padding: 2px 14px;
+							position: absolute;
+							right: 0px;
+							margin: 0;
+							top: -25px;
+						}
+					}
+					&#top-tab {
+						position: relative;
+						&::after {
+							content: "7";
+							background-image: url(../../assets/imgs/grocery/icon/tag.png);
+							color: var(--clr-common-white);
+							padding: 2px 14px;
+							position: absolute;
+							right: 0px;
+							margin: 0;
+							top: -25px;
+						}
+					}
+					&#tensing-tab {
+						position: relative;
+						&::after {
+							content: "5";
+							background-image: url(../../assets/imgs/grocery/icon/tag.png);
+							color: var(--clr-common-white);
+							padding: 2px 14px;
+							position: absolute;
+							right: 0px;
+							margin: 0;
+							top: -25px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.hey-grocery {
+	.breadcrumb__area {
+		background: var(--clr-common-black);
+	}
+	.breadcrumb__thumb {
+		mix-blend-mode: unset;
+		opacity: 50%;
+	}
+	.product-title {
+		a {
+			&:hover {
+				color: var(--clr-theme-grocery);
+			}
+		}
+	}
+	.breadcrumb__menu ul li span a {
+		&:hover {
+			color: var(--clr-theme-grocery);
+		}
+	}
+	.product__details-tag a {
+		background-color: var(--clr-theme-grocery);
+	}
+	.product__details-rating a {
+		color: var(--clr-theme-grocery);
+	}
+	.product__details-price .new-price {
+		color: var(--clr-theme-grocery);
+	}
+	.product__quantity .product-quantity-wrapper .cart-input {
+		color: var(--clr-theme-grocery);
+	}
+	.fill-btn {
+		background-color: var(--clr-theme-grocery);
+		&::before {
+			background-color: var(--clr-theme-grocery);
+		}
+	}
+	.product__add-wish-btn:hover {
+		border-color: var(--clr-theme-grocery);
+		background-color: var(--clr-theme-grocery);
+	}
+	.product__details-share a:hover {
+		color: var(--clr-theme-grocery);
+	}
+	.product__details-more-tab .nav-link.active,
+	.product__details-more-tab .nav-link:hover {
+		border-color: var(--clr-theme-grocery);
+		background-color: var(--clr-theme-grocery);
+	}
+	.product__details-review .user-rating ul li a {
+		color: var(--clr-theme-grocery);
+	}
+	.product__details-comment .comment-agree input {
+		border: 1px solid var(--clr-theme-grocery);
+	}
+
+	.product__details-thumb-tab .nav-tabs .nav-link.active,
+	.product__details-thumb-tab .nav-tabs .nav-link:hover {
+		border: 1px solid var(--clr-theme-grocery);
+	}
+	.bd-loader-item {
+		background-color: var(--clr-theme-grocery);
+	}
+	.product__details-meta a:hover {
+		color: var(--clr-theme-grocery);
+	}
+
+	.product__details-comment .comment-rating ul li a {
+		color: var(--clr-theme-grocery);
+	}
+	.product__quantity .product-quantity-wrapper {
+		button {
+			&:hover {
+				color: var(--clr-theme-grocery);
+			}
+		}
+	}
+	.product-trending {
+		background-color: var(--clr-theme-grocery);
+	}
+	.product-action-btn {
+		background-color: var(--clr-theme-grocery);
+	}
+	.product-tag {
+		span {
+			color: var(--clr-theme-grocery);
+		}
+	}
+	.product-modal-close {
+		background-color: var(--clr-theme-grocery);
+	}
+	.offcanvas__info {
+		border-left: 2px solid var(--clr-theme-grocery);
+	}
+	.product-new-price {
+		color: var(--clr-theme-grocery);
+	}
+	.bd-product__filter-style .nav-link.active {
+		color: var(--clr-theme-grocery);
+	}
+	.bd-basic__pagination ul li a {
+		&:hover {
+			background-color: var(--clr-theme-grocery);
+		}
+	}
+	.bd-basic__pagination ul li .current {
+		background-color: var(--clr-theme-grocery);
+	}
+}
+// Grocery style area end ***

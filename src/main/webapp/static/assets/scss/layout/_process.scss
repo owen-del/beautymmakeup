@@ -1,0 +1,97 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/* newsletter CSS START
+/*----------------------------------------*/
+.process-content {
+	padding-right: 120px;
+	@media #{$xl} {
+		padding-right: 30px;
+	}
+	@media #{$xs, $sm, $md, $lg} {
+		padding-right: 0px;
+	}
+}
+.process-content {
+	& > p {
+		margin-bottom: 35px;
+	}
+}
+.process-info-number {
+	span {
+		width: 57px;
+		height: 57px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--clr-theme-secondary);
+		border-radius: 50%;
+		font-size: 26px;
+		line-height: 1;
+		color: var(--clr-common-white);
+		font-weight: 500;
+		position: relative;
+		&::before {
+			position: absolute;
+			content: "";
+			height: calc(100% + 10px);
+			width: calc(100% + 10px);
+			background-color: rgba(235, 117, 59, 0.20);
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 50%;
+		}
+	}
+}
+.process-info-tem {
+	display: flex;
+	align-items: start;
+	gap: 20px;
+	position: relative;
+    &:not(:last-child) {
+        margin-bottom: 40px;
+    }
+	&:not(:last-child) {
+		&::before {
+			position: absolute;
+			content: "";
+			height: 100px;
+			width: 1px;
+			border-left: 1px dashed rgb(235, 117, 59);
+			left: 29px;
+			z-index: -1;
+			top: 20px;
+		}
+	}
+}
+.process-info-content {
+    h3 {
+        font-size: 20px;
+        margin-bottom: 5px;
+		@media #{$xxs} {
+			font-size: 18px;
+		}
+    }
+	& > p {
+		margin-bottom: 0;
+	}
+}
+.process-thumb-wrapper {
+	margin: 0 15px;
+    &::after {
+		position: absolute;
+		content: "";
+		height: 100%;
+		width: 100%;
+		background-color: rgba(22, 22, 22, 0.2);
+		right: -15px;
+		top: 20px;
+		z-index: -1;
+    }
+}
+.process-thumb {
+	img {
+		width: 100%;
+	}
+}

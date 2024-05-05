@@ -1,0 +1,38 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  BACKGROUND COLOR CSS START
+/*----------------------------------------*/
+
+/*--- Background color
+-----------------------------------------*/			 
+.white-bg {
+	background-color: var(--clr-text-primary);
+}
+.black-bg {
+	background-color:var(--clr-common-black);
+}
+.dark-bg {
+	background-color: var(--clr-common-heading);;
+}
+.grey-bg {
+	background-color: var(--clr-bg-gray-1);
+}
+.footer-bg {
+	background-color: var(--clr-bg-2);
+}
+.theme-bg-1 {
+	background: var(--clr-theme-primary);
+}
+.theme-bg-2 {
+	background: var(--clr-bg-1);
+}
+.theme-bg-3 {
+	background: var(--clr-bg-2);
+}
+.theme-bg-4 {
+	background: var(--clr-bg-3);
+}
+.theme-bg-5 {
+	background: var(--clr-bg-4);
+}

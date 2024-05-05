@@ -1,0 +1,105 @@
+
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  SEARCH CSS START
+/*----------------------------------------*/
+
+.df-search{
+    $self :&;
+    &-area{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 9999;
+        background-color: var(--clr-common-white);
+        padding: 40px 15px;
+        visibility: visible;
+        opacity: 0;
+        transform: translateY(-120%);
+        @extend %bd-transition;
+        &.opened{
+            transform: translateY(0%);
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    &-input{
+        position: relative;
+        & button{
+            position: absolute;
+            top: 54%;
+            right: 20px;
+            @include transform(translateY(-50%));
+            font-size: 24px;
+
+            &:hover{
+                color: var(--tp-theme-primary);
+            }
+        }
+    }
+    &-category{
+        & span{
+            color: var(--clr-common-black);
+        }
+        & a{
+            font-size: 14px;
+            margin-left: 5px;
+            &:hover{
+                color: var(--clr-theme-secondary);
+            }
+        }
+    }
+    &-close{
+        display: none;
+        &-btn{
+            border-radius: 50%;
+            background: #ECECEC;
+            border: 9px solid transparent;
+            color: var(--clr-common-black);
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+
+            &::after,
+            &::before{
+                content: '';
+                position: absolute;
+                height: 1px;
+                width: 90%;
+                top: 46%;
+                left: 1px;
+                transform-origin: 50% 50%;
+                background-color: var(--clr-common-black);
+                opacity: 1;
+                -moz-transition: -moz-transform ease 0.25s;
+                -webkit-transition: -webkit-transform ease 0.25s;
+                -o-transition: -o-transform ease 0.25s;
+                -ms-transition: -ms-transform ease 0.25s;
+                transition: transform ease 0.25s;
+            }
+
+            &::before{
+                transform: rotate(45deg);
+            }
+            &::after{
+                transform: rotate(-45deg);
+            }
+
+            &:hover{
+                &::before{
+                    transform: rotate(-45deg);
+                }
+                &::after{
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+}

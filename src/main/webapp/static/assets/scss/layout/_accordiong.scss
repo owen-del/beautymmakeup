@@ -1,0 +1,141 @@
+@use "../utils" as *;
+
+/*----------------------------------------*/
+/*  ACCORDION CSS STAR
+/*----------------------------------------*/
+
+.bd-faq.bd-faq-2column {
+	.accordion {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: 50px;
+		row-gap: 20px;
+		> div {
+			width: calc((100% - 50px) / 2);
+			@media #{$md,$sm,$xs} {
+				width: calc((100% - 0px) / 1);
+			}
+		}
+	}
+}
+.bd-faq {
+	.accordion-button {
+		border: 1px solid rgb(85, 85, 85, 0.2);
+		border-radius: 30px;
+		padding: 0 12px;
+		height: 60px;
+		font-size: 18px;
+		font-weight: 500;
+		padding-inline-end: 50px;
+		text-align: left;
+		background: var(--clr-common-white);
+		gap: 15px;
+		color: var(--clr-common-heading);
+		@media #{$lg,$xxs} {
+			padding: 0 18px;
+		}
+		&::after {
+			content: "\f067";
+			background-image: none;
+			font-family: var(--bd-ff-fontawesome);
+			font-size: 14px;
+			font-weight: 400;
+			height: 30px;
+			width: 30px;
+			border: 1px solid var(--clr-border-2);
+			line-height: 30px;
+			border-radius: 50%;
+			margin-inline-start: 0;
+			text-align: center;
+			position: absolute;
+			right: 19px;
+			color: var(--clr-theme-primary);
+		}
+		&:not(.collapsed) {
+			background-color: transparent;
+			box-shadow: none;
+			.accordion-number {
+				background: var(--clr-theme-primary);
+				color: var(--clr-common-white);
+			}
+			&::after {
+				background: var(--clr-common-white);
+				color: var(--clr-theme-primary);
+				content: "\f068";
+			}
+		}
+		&:focus {
+			box-shadow: none;
+		}
+	}
+	.accordion-body {
+		font-size: 16px;
+		line-height: 28px;
+		padding: 20px 0px 5px 0px;
+		color: var(--clr-text-body);
+		@media #{$lg,$xxs} {
+			font-size: 16px;
+			padding: 24px 0px 5px 0px;
+		}
+	}
+	.accordion-collapse {
+		border: none;
+		transition: all 0.5s;
+	}
+	.accordion-item {
+		border: none;
+		@include rtl {
+			background: none;
+		}
+		&:first-of-type {
+			.accordion-button {
+				border-radius: 30px;
+			}
+		}
+		&:last-of-type {
+			.accordion-button.collapsed {
+				border-width: 1px;
+				border-radius: 30px;
+			}
+		}
+	}
+}
+.bd-faq-group {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+// faq-2 style
+.faq-area.style-2 {
+	background: var(--clr-theme-3);
+}
+
+.faq-thumb {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 160px;
+	height: 160px;
+	background: var(--clr-common-white);
+	text-align: center;
+	line-height: 160px;
+	border-radius: 550%;
+	@media #{$xxs} {
+		transform: translate(-50%, -50%) scale(0.7);
+	}
+}
+.accordion-number {
+	font-size: 14px;
+	display: inline-flex;
+	align-items: center;
+	width: 36px;
+	height: 36px;
+	justify-content: center;
+	border-radius: 50%;
+	min-width: 36px;
+	background: rgba(177, 139, 94, 0.2);
+	color: var(--clr-theme-primary);
+	font-weight: 500;
+}

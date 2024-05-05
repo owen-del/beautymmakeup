@@ -1,0 +1,86 @@
+@use "../utils" as *;
+
+/*----------------------------------------*/
+/*  BREADCRUMB CSS START
+/*----------------------------------------*/
+
+// Breadcrumb style
+.breadcrumb__thumb {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.breadcrumb__title {
+	font-size: 64px;
+	margin-bottom: 15px;
+	color: var(--clr-common-white);
+	@media #{$xl, $lg} {
+		font-size: 56px;
+	}
+	@media #{$md} {
+		font-size: 50px;
+	}
+	@media #{$xs, $sm} {
+		font-size: 42px;
+	}
+	@media #{$xxs} {
+		font-size: 34px;
+	}
+}
+.breadcrumb__menu {
+	ul {
+		@include inline-flex();
+		padding-left: 22px;
+		gap: 25px;
+		justify-content: center;
+		li {
+			list-style: none;
+			position: relative;
+			line-height: 1;
+			&:not(:first-child) {
+				span {
+					color: var(--clr-common-white);
+				}
+			}
+			&:not(:last-child) {
+				&:after {
+					display: inline-block;
+					content: "";
+					position: absolute;
+					width: 5px;
+					height: 5px;
+					background: var(--clr-common-white);
+					inset-inline-end: -15px;
+					top: 50%;
+					font-family: var(--bd-ff-fontawesome);
+					font-size: 14px;
+					transform: translateY(-50%);
+					@include border-radius(50%);
+				}
+			}
+			&.active {
+				span {
+					color: var(--clr-theme-primary);
+				}
+			}
+			span {
+				font-size: 16px;
+				text-transform: capitalize;
+				font-weight: var(--bd-fw-medium);
+				color: var(--clr-common-white);
+				a {
+					font-weight: var(--bd-fw-medium);
+					&:hover {
+						color: var(--clr-theme-primary);
+					}
+				}
+			}
+		}
+	}
+}

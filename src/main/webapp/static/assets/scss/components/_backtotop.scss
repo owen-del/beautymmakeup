@@ -1,0 +1,74 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  BACKTOTOP CSS START
+/*----------------------------------------*/
+.backtotop-wrap {
+  position: fixed;
+  bottom: 35px;
+  right: 30px;
+  height: 44px;
+  width: 44px;
+  cursor: pointer;
+  display: block;
+  border-radius: 50px;
+  z-index: 100;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transform: translateY(20px);
+	-ms-transform: translateY(20px);
+	transform: translateY(20px);
+	-webkit-transition: all 400ms linear;
+	-o-transition: all 400ms linear;
+	transition: all 400ms linear;
+  color: var(--clr-common-heading);
+  justify-content: center;
+  background-color: var(--clr-common-white);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  &:hover {
+    transform: translateY(-2px);
+  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.2);
+  }
+	&.active-progress {
+		opacity: 1;
+		visibility: visible;
+		-webkit-transform: translateY(0);
+		-ms-transform: translateY(0);
+		transform: translateY(0);
+	}
+	&::after {
+    position: absolute;
+    font-family: var(--bd-ff-fontawesome);
+    content: "\f062";
+    text-align: center;
+    line-height: 44px;
+    font-size: 16px;
+    font-weight: 900;
+    left: 0;
+    top: 0;
+    height: 44px;
+    width: 44px;
+    cursor: pointer;
+    display: block;
+    z-index: 1;
+    -webkit-transition: all 400ms linear;
+    -o-transition: all 400ms linear;
+    transition: all 400ms linear;
+	}
+	svg {
+		path {
+			fill: none;
+		}
+		&.backtotop-circle {
+			path {
+				stroke: #ccc;
+				stroke-width: 0;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				-webkit-transition: all 400ms linear;
+				-o-transition: all 400ms linear;
+				transition: all 400ms linear;
+			}
+		}
+	}
+}

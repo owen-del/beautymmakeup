@@ -1,0 +1,12 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  ERROR CSS START
+/*----------------------------------------*/
+.error-content {
+	max-width: 680px;
+	margin: 0 auto;
+	h2 {
+		margin-bottom: 30px;
+	}
+}

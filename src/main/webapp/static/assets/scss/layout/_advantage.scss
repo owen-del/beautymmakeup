@@ -1,0 +1,54 @@
+@use "../utils" as *;
+/*----------------------------------------*/
+/*  ADVANTAGE CSS START
+/*----------------------------------------*/
+.advantage-item {
+	padding: 0 55px;
+    @media #{$xl} {
+        padding: 0 30px;
+    }
+    @media #{$xs,$sm,$md,$lg} {
+        padding: 0;
+    }
+}
+.advantage-icon {
+	margin-bottom: 20px;
+	& > span {
+		height: 100px;
+		width: 100px;
+		background: rgba(217, 243, 251, 1);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		position: relative;
+	}
+}
+.advantage-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--clr-common-white);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: var(--clr-theme-secondary);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.advantage-content {
+    h4 {
+        margin-bottom: 10px;
+        @media #{$xxs,$lg} {
+            font-size: 20px;
+        }
+    }
+    P {
+        margin-bottom: 0;
+    }
+}

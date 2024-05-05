@@ -1,0 +1,491 @@
+@use '../utils' as *;
+
+/*-----------------------------------------------------------------------------------
+
+    Theme Name: Diango - Health Medical Center HTML5 Template
+    Author: bugfixx
+    Support: mailto:masumkhandakar4@gmail.com
+    Description: Diango - Health Medical Center HTML5 Template
+    Version: 1.0
+	Developer: Sagor Khan Omi
+
+-----------------------------------------------------------------------------------
+
+/************ TABLE OF CONTENTS ***************
+
+	01. THEME DEFAULT CSS START
+  	02. ANIMATION CSS START
+	03. BACKGROUND COLOR CSS START
+	04. BREADCRUMB CSS START
+	05. BACKTOTOP CSS START
+	06. BREADCRUMB CSS START
+	07. BUTTON CSS START
+	08. CAROUSEL CSS START
+	09. MEAN MENU CSS START
+	10. OFFCANVAS CSS START
+	11. PAGINATION CSS START
+	12. PRELOADER CSS START
+	13. SEARCH CSS START
+	14. SECTION TITLE CSS START
+	15. SHORT CODE CSS START
+	16. SOCIAL CSS START
+	17. SPACE CSS START
+	18. TAB CSS START
+	19. ABOUT CSS START
+	20. ACCORDION CSS START
+	21.	ADVANTAGE CSS START
+	22.	APPOINTMENT CSS START
+	23.	BANNER CSS START
+	24.	BENEFIT CSS START
+	25.	BLOG CSS START
+	26.	BRAND CSS START
+	27.	CONTACT CSS START
+	28. COUNTER CSS START
+	29. DISCOUNT CSS START
+	30. DOCTOR CSS START
+	31. ERROR CSS START
+	32. FAQ CSS START
+	33. FEATURES CSS START
+	34. FEATURES CSS START
+	35. FOOTER CSS START
+	36. HEADER CSS START
+	37. INTRO CSS START
+	38. MENU CSS START
+	39. NEWSLETTER CSS START
+	40. PRODUCT DETAILS CSS START
+	41. PRODUCT CSS START
+	42. PROJECT CSS START
+	43. SERVICE CSS START
+	44. SKILL CSS START
+	45. SLIDER CSS START
+	46. SUPPORT CSS START
+	47. TEAM CSS START
+	48. TESTIMONIAL CSS START
+	49. VACCINE CSS START
+	50. WHAT WE DO CSS START
+	51. WHY CHOOSE CSS START
+	52. WORK CHOOSE CSS START
+
+**********************************************/
+
+/*----------------------------------------*/
+/*  01. THEME DEFAULT CSS START
+/*----------------------------------------*/
+
+// Google Fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 10px;
+}
+
+/*---------------------------------
+    Typography css start 
+---------------------------------*/
+body {
+	font-family: var(--bd-ff-body);
+	font-size: var(--bd-fs-body);
+	font-weight: normal;
+	color: var(--clr-text-body);
+	line-height: 26px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--bd-ff-body);
+	color: var(--clr-text-secondary);
+	margin-top: 0px;
+	line-height: 1.3;
+	margin-bottom: 0;
+	font-weight: var(--bd-fw-sbold);
+}
+
+h1 {
+	font-size: var(--bd-fs-h1);
+}
+  
+h2 {
+font-size: var(--bd-fs-h2);
+}
+
+h3 {
+font-size: var(--bd-fs-h3);
+}
+
+h4 {
+font-size: var(--bd-fs-h4);
+}
+
+h5 {
+font-size: var(--bd-fs-h5);
+}
+
+h6 {
+font-size: var(--bd-fs-h6);
+}
+
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+p {
+	font-size: var(--bd-fs-p);
+	font-weight: var(--bd-fw-normal);
+	color: var(--clr-text-body);
+	margin-bottom: 15px;
+	line-height: 26px;
+}
+
+a {
+	text-decoration: none;
+}
+
+a,
+.btn,
+button,
+span,
+svg,
+p,
+input,
+select,
+textarea,
+li,
+img,
+svg,
+.transition-3,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@extend %bd-transition;
+}
+
+a:focus,
+.button:focus {
+	text-decoration: none;
+	outline: none;
+}
+
+a:focus,
+a:hover{
+	color: inherit;
+	text-decoration: none;
+}
+
+a,
+button {
+	color: inherit;
+	outline: none;
+	border: none;
+	background: transparent;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+button:hover{
+	cursor: pointer;
+}
+
+button:focus{
+    outline: 0; 
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+.capitalize {
+	text-transform: capitalize;
+}
+hr:not([size]) {
+	margin: 0;
+	border-color: rgba(22, 22, 22, 0.1);
+	opacity: 1;
+	border-width: 1px;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+textarea{
+	outline: none;
+	background-color: #fff;
+	height: 65px;
+	width: 100%;
+	line-height: 65px;
+	font-size: 16px;
+	color: var(--clr-common-heading);
+	padding-left: 26px;
+	padding-right: 26px;
+	border: 1px solid #E0E2E3;
+}
+
+*::-moz-selection {
+  	background: var(--clr-common-selection);
+	color: var(--clr-common-white);
+	text-shadow: none;
+}
+::-moz-selection {
+  	background: var(--clr-common-selection);
+	color: var(--clr-common-white);
+	text-shadow: none;
+}
+::selection {
+  	background: var(--clr-common-selection);
+	color: var(--clr-common-white);
+	text-shadow: none;
+}
+
+*::-moz-placeholder {
+	color: var(--clr-common-placeholder);
+	opacity: 1;
+	font-size: 16px;
+}
+*::placeholder {
+	color: var(--clr-common-placeholder);
+	opacity: 1;
+	font-size: 16px;
+}
+
+/*----------------------------------------
+   Flaction customize
+-----------------------------------------*/
+i[class^="flaticon-"] {
+	line-height: 1;
+	top: 2px;
+	position: relative;
+	@extend %bd-transition;
+}
+
+/*----------------------------------------
+   Bootstrap customize
+-----------------------------------------*/
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+	--bs-gutter-x: 3rem;
+}
+.row {
+	--bs-gutter-x: 3rem;
+}
+@media (min-width: 1441px) {
+
+	.container,
+	.container-lg,
+	.container-md,
+	.container-sm,
+	.container-xl,
+	.container-xxl {
+		max-width: 1350px;
+	}
+}
+.custom-container {
+	max-width: 1620px;
+}
+.g-40,
+.gx-40 {
+	--bs-gutter-x: 40px;
+}
+
+.g-40,
+.gy-40 {
+	--bs-gutter-y: 40px;
+}
+
+.g-50,
+.gx-50 {
+	--bs-gutter-x: 50px;
+}
+
+.g-50,
+.gy-50 {
+	--bs-gutter-y: 50px;
+}
+
+.g-60,
+.gy-60 {
+	--bs-gutter-y: 60px;
+}
+.g-0, .gy-0 {
+	--bs-gutter-y: 0;
+}
+.g-0, .gx-0 {
+	--bs-gutter-x: 0;
+}
+.g-15 {
+	--bs-gutter-y: 15px;
+	--bs-gutter-x: 15px;
+}
+/*---------------------------------
+    common classes css start 
+---------------------------------*/
+.w-img{
+	& img{
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+.m-img{
+	& img{
+		max-width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+.fix {
+    overflow:hidden
+}
+.clear{
+    clear: both;
+}
+
+.f-left {
+	float: left
+}
+.f-right {
+	float: right
+}
+
+.z-index-1{
+	z-index: 1;
+}
+
+.z-index-11{
+	z-index: 11;
+}
+
+.overflow-y-visible{
+	overflow-x: hidden;
+	overflow-y: visible;
+}
+
+.p-relative{
+	position: relative;
+}
+.p-absolute{
+	position: absolute;
+}
+
+.include-bg{
+	@include background();
+}
+.hr-1 {
+	border-top: 1px solid rgb(232, 232, 232);
+}
+.x-clip {
+	overflow-x: clip;
+}
+/*----------------------------------------
+   Mfp customize
+-----------------------------------------*/
+.mfp-iframe-holder {
+	.mfp-content {
+		line-height: 0;
+		width: 100%;
+		max-width: 1280px;
+		@media #{$xxl} {
+			max-width: 1000px;
+		}
+		@media #{$xl} {
+			max-width: 850px;
+		}
+		@media #{$lg} {
+			max-width: 820px;
+		}
+	}
+}
+.mfp-close {
+	-webkit-transform: rotate(0deg);
+	-ms-transform: rotate(0deg);
+	transform: rotate(0deg);
+	&:hover{
+		color: var(--clr-common-white);
+	}
+	&::after {
+		position: absolute;
+		content: "\f00d";
+		height: 100%;
+		width: 100%;
+		font-family: var(--bd-ff-fontawesome);
+		font-size: 31px;
+		font-weight: 200;
+		right: -20px;
+		margin-top: -25px;
+		@media #{$xs,$sm,$md} {
+			right: 15px;
+			margin-top: -30px;
+		}
+	}
+}
+.body__overlay {
+	background-color: var(--clr-common-heading);
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 9999;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+	@extend %bd-transition;
+}
+.body__overlay {
+	background-color: var(--clr-common-heading);
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 9999;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+	@extend %bd-transition;
+}
+.body__overlay.opened {
+	opacity: 0.7;
+	visibility: visible;
+}
+
+.bd-sticky {
+	position: sticky;
+	top: 120px;
+}
+/*----------------------------------------
+    Body Overlay 
+-----------------------------------------*/
+.body-overlay{
+    background-color: var(--clr-common-black);
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 999;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+	@include bd-transition();
+	&:hover{
+		cursor: url('../imgs/icons/cross-out.png'), pointer;
+	}
+}
+.body-overlay.opened{
+	opacity: .7;
+    visibility: visible;
+}

@@ -1,0 +1,36 @@
+
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/* WORK CHOOSE CSS START
+/*----------------------------------------*/
+.what-we-do-item {
+    border: 1px solid var(--clr-border-2);
+	padding: 40px 40px;
+	@media #{$xxs,$lg} {
+		padding: 30px 25px;
+	}
+}
+.what-we-do-icon {
+	margin-bottom: 25px;
+	span {
+		width: 74px;
+		height: 74px;
+		background: rgb(3, 175, 229, 0.3);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+.what-we-do-content {
+	h4 {
+		margin-bottom: 20px;
+		@media #{$xxs} {
+			margin-bottom: 15px;
+			font-size: 20px;
+		}
+	}
+	p {
+		margin-bottom: 25px;
+	}
+}

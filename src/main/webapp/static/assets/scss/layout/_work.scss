@@ -1,0 +1,71 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  ABOUT CSS START
+/*----------------------------------------*/
+.work-content {
+	padding-right: 60px;
+	@media #{$xs,$sm,$md,$lg} {
+		padding-right: 0;
+	}
+}
+.work-line {
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    width: 100%;
+	img {
+		width: 100%;
+	}
+}
+.working-item {
+	padding: 0px 40px;
+	@media #{$lg} {
+		padding: 0 10px;
+	}
+}
+.working-icon {
+	span {
+		height: 100px;
+		width: 100px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background: #D9F3FB;
+		border-radius: 50%;
+		margin-bottom: 25px;
+	}
+}
+.working-contentt {
+    h4 {
+        margin-bottom: 15px;
+		@media #{$xxs, $lg} {
+			font-size: 20px;
+		}
+    }
+    p {
+        margin-bottom: 0;
+    }
+}
+.beforeAfter {
+	z-index: 1 !important;
+    & img {
+        max-width: inherit;
+        object-fit: cover;
+    }
+}
+.beforeAfter div div div {
+	background: transparent !important;
+	height: 80px !important;
+	width: 80px !important;
+	line-height: 74px !important;
+    border: 2px solid #FFFFFF !important;
+    z-index: -1 !important;
+    & i {
+        border-color: #fff !important;
+        padding: 5px !important;
+        margin: 0 5px !important;
+    }
+}

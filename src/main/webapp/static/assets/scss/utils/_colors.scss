@@ -1,0 +1,55 @@
+$colors: (
+	common: (
+		"white": #fff,
+		"black": #000,
+		"placeholder": #808080,
+		"heading": #191919,
+		"body-text": #555555,
+		"selection": #262626,
+		"body": #fff,
+	),
+	theme: (
+		"primary": #b18b5e,
+		"secondary": #b18b5e,
+		"grocery": #b18b5e,
+	),
+	text: (
+		"primary": #fff,
+		"secondary": #161616,
+		"body": #555555,
+		"2": #222222,
+		"3": #9f9f9f,
+		"4": #808080,
+	),
+	bg: (
+		"1": #f5f1e6,
+		"2": #191919,
+		"3": #f5f1e6,
+		"4": #f5f1e6,
+		"5": #f5f1e6,
+	),
+	border: (
+		"1": #2f2f2f,
+		"2": rgba(85, 85, 85, 0.2),
+	),
+	gradient: (
+		"1": linear-gradient(96.81deg, #ff589b 0%, #ffc107 100%),
+	),
+);
+
+// Text color
+.text-color-1 {
+	color: var(--clr-theme-primary);
+}
+.text-color-2 {
+	color: var(--clr-theme-secondary);
+}
+.text-color-3 {
+	color: var(--clr-theme-3);
+}
+.text-color-4 {
+	color: var(--clr-theme-4);
+}
+.text-color-5 {
+	color: var(--clr-theme-5);
+}

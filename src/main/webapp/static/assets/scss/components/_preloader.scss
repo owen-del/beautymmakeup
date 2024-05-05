@@ -1,0 +1,105 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  PRELOADER CSS START
+/*----------------------------------------*/
+
+#preloader {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background-color: #121212;
+	z-index: 999;
+}
+.bd-loader-wrap {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	width: 100%;
+}
+.bd-loader-inner {
+	position: fixed;
+	width: 100%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+.bd-loader {
+	margin-left: 92px;
+
+	@media #{$sm,$xs} {
+		transform: scale(0.8);
+		margin-left: 66px;
+	}
+
+}
+.bd-loader-item {
+	position: absolute;
+	width: 6px;
+	height: 80px;
+	margin-top: -45px;
+	border-radius: 0px;
+	background-color: var(--clr-theme-primary);
+	animation: bd-loader-aim 0.8s infinite;
+	animation-direction: alternate-reverse;
+}
+
+.bd-loader {
+	.bd-loader-item {
+		&:nth-child(1) {
+			margin-left: 0px;
+		}
+
+		&:nth-child(2) {
+			margin-left: -14px;
+			animation-delay: 0.1s;
+		}
+
+		&:nth-child(3) {
+			margin-left: -28px;
+			animation-delay: 0.2s;
+		}
+
+		&:nth-child(4) {
+			margin-left: -42px;
+			animation-delay: 0.3s;
+		}
+
+		&:nth-child(5) {
+			margin-left: -56px;
+			animation-delay: 0.4s;
+		}
+
+		&:nth-child(6) {
+			margin-left: -70px;
+			animation-delay: 0.5s;
+		}
+
+		&:nth-child(7) {
+			margin-left: -84px;
+			animation-delay: 0.6s;
+		}
+
+		&:nth-child(8) {
+			margin-left: -98px;
+			animation-delay: 0.7s;
+		}
+	}
+}
+@keyframes bd-loader-aim {
+	0% {
+		height: 2px;
+		margin-top: 0;
+		transform: rotate(0deg);
+	}
+
+	100% {
+		height: 80px;
+		transform: rotate(0deg);
+	}
+}

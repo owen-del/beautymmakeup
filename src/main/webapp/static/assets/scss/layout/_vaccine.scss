@@ -1,0 +1,72 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  VACCINE CSS START
+/*----------------------------------------*/
+.vaccine-content {
+	padding-right: 150px;
+	@media #{$xs,$sm,$md,$lg} {
+		padding-right: 0;
+	}
+	& > p {
+		color: var(--clr-common-white);
+		margin-bottom: 45px;
+	}
+}
+.vaccine-play {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.vaccine-thumb {
+	position: relative;
+	img {
+		width: 100%;
+	}
+	&:after {
+		position: absolute;
+		content: "";
+		height: 100%;
+		width: 65%;
+		background: linear-gradient(90deg, #03AFE5 0%, rgba(3, 175, 229, 0.00) 100%);
+		left: 0;
+		top: 0;
+	}
+}
+.countdown-wrapper {
+	ul {
+		display: flex;
+		gap: 20px;
+		flex-wrap: wrap;
+		li {
+			display: inline-block;
+			font-size: 14px;
+			list-style-type: none;
+			text-transform: uppercase;
+			background: #4FC7ED;
+			padding: 20px 10px 5px;
+			text-align: center;
+			color: var(--clr-common-white);
+			position: relative;
+			width: 85px;
+			span {
+				display: block;
+				font-size: 32px;
+				font-weight: 700;
+				color: var(--clr-common-white);
+				margin-bottom: 15px;
+				position: relative;
+				&::before {
+					position: absolute;
+					content: "";
+					width: 85px;
+					height: 1px;
+					background: rgba(230, 247, 252, 0.20);
+					bottom: -13px;
+					left: -10px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,39 @@
+@use '../utils' as *;
+/*----------------------------------------*/
+/*  SUPPORT CSS START
+/*----------------------------------------*/
+.support-item {
+	padding: 40px 40px;
+	background:rgba(217, 243, 251, 1);
+	@media #{$xxs, $lg} {
+		padding: 30px 30px;
+	}
+	&.is-light-yellow {
+		background: rgba(249, 255, 224, 1);
+	}
+	&.is-pale-pink {
+		background: rgba(255, 226, 229, 1);
+	}
+}
+.support-content {
+	h3 {
+		margin-bottom: 20px;
+		font-size: 26px;
+	}
+	& > p {
+		margin-bottom: 30px;
+	}
+}
+.mobile__app-download {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	.app__download {
+		background: rgb(6, 6, 6);
+		padding: 14px 20px;
+		border: 0;
+		&:hover {
+			@include transform(translateY(-3px))
+		}
+	}
+}
