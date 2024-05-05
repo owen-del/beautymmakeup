@@ -16,6 +16,17 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 声明需要拦截器拦截的请求，即/user/下面的所有请求 -->
+            <mvc:mapping path="/admin/**"/>
+            <mvc:mapping path="/assets/**"/>
+            <!-- 声明拦截器的位置，即拦截器的全类名 -->
+            <bean class="com.filter.LoginFilter"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <!-- 静态资源配置 -->
     <mvc:resources mapping="/css/**" location="/static/css/"></mvc:resources>
     <mvc:resources mapping="/fonts/**" location="/static/fonts/"></mvc:resources>
