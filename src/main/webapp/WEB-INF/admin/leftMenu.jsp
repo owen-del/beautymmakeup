@@ -54,7 +54,7 @@
           <ul class="nav nav-subnav">
             <li><a href="/admin/prosorder/sellAcceptance">待受理订单</a> </li>
             <li><a href="/admin/prosorder/sellWaitSign">待签收订单</a> </li>
-            <li><a href="">历史订单</a></li>
+            <li><a href="/admin/prosorder/sellHistory">历史订单</a></li>
             <li><a href="">购物车</a></li>
             <li><a href="/admin/receiveInfo/receiveInfo">收货信息</a></li>
             <li><a href="">我的收藏</a></li>

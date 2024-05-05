@@ -247,4 +247,41 @@ public class ProsorderController {
     }
 
 
+
+    /**
+     * 买方历史订单列表
+     * @param orderno
+     * @param request
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/sellHistory", method = RequestMethod.GET)
+    public ModelAndView sellHistory(@RequestParam(value = "orderno", defaultValue = "") String orderno, HttpServletRequest request, ModelAndView modelAndView) {
+        User loginUser = (User) request.getSession().getAttribute("loginUser");
+        List<String> fshstatus = new ArrayList<>();
+        fshstatus.add("已签收");
+        fshstatus.add("已拒绝");
+        fshstatus.add("已取消");
+        List<Prosorder> prosorderList = prosorderService.findLikeByOrderno(loginUser, fshstatus, orderno);
+        modelAndView.setViewName("/admin/sellHistory/sellHistory");
+        modelAndView.addObject("list", prosorderList);
+        return modelAndView;
+    }
+
+    /**
+     * 买方历史订单详情
+     * @param id
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/sellHistoryDetails/{id}", method = RequestMethod.GET)
+    public ModelAndView sellHistoryDetails(@PathVariable("id") Long id, ModelAndView modelAndView) {
+        Prosorder prosorder = prosorderService.findById(id);
+        modelAndView.setViewName("/admin/sellHistory/details");
+        modelAndView.addObject("prosorder", prosorder);
+        modelAndView.addObject("op", "订单详情");
+        return modelAndView;
+    }
+
+
 }
