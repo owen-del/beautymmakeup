@@ -124,8 +124,6 @@ public class ProsorderController {
     }
 
 
-
-
     /**
      * 待签收订单
      * @param orderno
@@ -158,5 +156,54 @@ public class ProsorderController {
         modelAndView.addObject("op", "订单详情");
         return modelAndView;
     }
+
+
+    /**
+     * 买方待签收订单
+     * @param orderno
+     * @param request
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/sellWaitSign", method = RequestMethod.GET)
+    public ModelAndView sellWaitSign(@RequestParam(value = "orderno", defaultValue = "") String orderno, HttpServletRequest request, ModelAndView modelAndView) {
+        User loginUser = (User) request.getSession().getAttribute("loginUser");
+        List<String> fshstatus = new ArrayList<>();
+        fshstatus.add("已发货");
+        List<Prosorder> prosorderList = prosorderService.findLikeByOrderno(loginUser, fshstatus,orderno);
+        modelAndView.setViewName("/admin/sellWaitSign/sellWaitSign");
+        modelAndView.addObject("list", prosorderList);
+        return modelAndView;
+    }
+
+    /**
+     * 买方待签收订单详情
+     * @param id
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/sellDetails/{id}", method = RequestMethod.GET)
+    public ModelAndView sellDetails(@PathVariable("id") Long id, ModelAndView modelAndView) {
+        Prosorder prosorder = prosorderService.findById(id);
+        modelAndView.setViewName("/admin/sellWaitSign/details");
+        modelAndView.addObject("prosorder", prosorder);
+        modelAndView.addObject("op", "订单详情");
+        return modelAndView;
+    }
+
+
+    /**
+     * 买方签收
+     * @param prosorder
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/sellSign", method = RequestMethod.POST)
+    public ResponseResult sellSign(Prosorder prosorder) {
+        return prosorderService.sellSign(prosorder);
+    }
+
+
+//
 
 }

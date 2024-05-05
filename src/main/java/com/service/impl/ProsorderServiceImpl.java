@@ -89,4 +89,15 @@ public class ProsorderServiceImpl implements ProsorderService {
         currentSession.update(old);
         return ResponseResult.SUCCESS("处理完成。");
     }
+
+    @Override
+    public ResponseResult sellSign(Prosorder prosorder) {
+        Prosorder old = findById(prosorder.getId());
+        old.setSshscore(prosorder.getSshscore());
+        old.setSshremo(prosorder.getSshremo());
+        old.setFshstatus("已签收");
+        Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.update(old);
+        return ResponseResult.SUCCESS("签收完成");
+    }
 }

@@ -94,14 +94,6 @@
                                     <input type="text" class="form-control" id="savetime" name="savetime" value="${prosorder.savetime}" placeholder="申请时间" />
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="sshscore">评星</label>
-                                    <input type="text" class="form-control" id="sshscore" name="sshscore" value="${prosorder.sshscore}" placeholder="评星" />
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="sshremo">评价</label>
-                                    <textarea class="form-control" id="sshremo" name="sshremo" rows="6" placeholder="评价">${prosorder.sshremo}</textarea>
-                                </div>
-                                <div class="form-group col-md-6">
                                     <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);return false;">返 回</button>
                                 </div>
                             </div>

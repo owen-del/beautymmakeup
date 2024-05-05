@@ -19,4 +19,11 @@ public interface ProsorderService {
 
     ResponseResult waitAcceptancehandle(Prosorder prosorder);
 
+    /**
+     * 买方签收
+     * @param prosorder
+     * @return
+     */
+    ResponseResult sellSign(Prosorder prosorder);
+
 }
