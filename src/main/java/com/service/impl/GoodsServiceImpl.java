@@ -38,7 +38,7 @@ public class GoodsServiceImpl implements GoodsService {
                 List<Goods> list = currentSession.createQuery("FROM Goods", Goods.class).list();
                 listAtomicCategory.set(list);
             });
-        }else {
+        } else {
             Optional.ofNullable(name).ifPresentOrElse(n -> {
                 if (!"".equals(n)) {
                     List<Goods> list = currentSession.createQuery("FROM Goods WHERE user.id = :uid AND  name LIKE CONCAT('%',:name,'%') ", Goods.class)
@@ -56,6 +56,13 @@ public class GoodsServiceImpl implements GoodsService {
         }
 
         return listAtomicCategory.get();
+    }
+
+    @Override
+    public List<Goods> findAll() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        List<Goods> list = currentSession.createQuery("FROM Goods WHERE status = '上架' ", Goods.class).list();
+        return list;
     }
 
     @Override
@@ -95,7 +102,7 @@ public class GoodsServiceImpl implements GoodsService {
         Session currentSession = sessionFactory.getCurrentSession();
         if (goods.getId() != null) {
             currentSession.merge(goods);
-        }else {
+        } else {
             currentSession.save(goods);
         }
     }

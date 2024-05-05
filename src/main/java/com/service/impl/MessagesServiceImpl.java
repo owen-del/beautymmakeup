@@ -1,6 +1,5 @@
 package com.service.impl;
 
-import com.entity.Category;
 import com.entity.Messages;
 import com.response.ResponseResult;
 import com.service.MessagesService;
@@ -41,6 +40,13 @@ public class MessagesServiceImpl implements MessagesService {
     }
 
     @Override
+    public List<Messages> findAll() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        List<Messages> list = currentSession.createQuery("FROM Messages ", Messages.class).list();
+        return list;
+    }
+
+    @Override
     public void deleteById(Long id) {
         Session currentSession = sessionFactory.getCurrentSession();
         Messages messages = currentSession.get(Messages.class, id);
@@ -65,5 +71,11 @@ public class MessagesServiceImpl implements MessagesService {
         m.setRecont(messages.getRecont());
         currentSession.update(m);
         return ResponseResult.SUCCESS("回复成功");
+    }
+
+    @Override
+    public void save(Messages messages) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.save(messages);
     }
 }

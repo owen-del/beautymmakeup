@@ -8,10 +8,9 @@
     </a>
     <ul class="dropdown-menu dropdown-menu-right">
       <li><a href="/admin/user/editOneself"><i class="mdi mdi-account"></i> 个人信息</a></li>
-      <li><a href="/admin/user/resetPassword"><i class="mdi mdi-lock-outline"></i>
-        修改密码</a></li>
-      <li><a href="/outLogin"><i class="mdi mdi-logout-variant"></i> 退出登录</a>
-      </li>
+        <li><a href="/admin/user/resetPassword"><i class="mdi mdi-lock-outline"></i>修改密码</a></li>
+        <li><a href="/assets/index"><i class="mdi mdi-lock-outline"></i>进入前台</a></li>
+      <li><a href="/outLogin"><i class="mdi mdi-logout-variant"></i> 退出登录</a></li>
     </ul>
   </li>
   <!--切换主题配色-->

@@ -21,6 +21,7 @@
     <mvc:resources mapping="/fonts/**" location="/static/fonts/"></mvc:resources>
     <mvc:resources mapping="/images/**" location="/static/images/"></mvc:resources>
     <mvc:resources mapping="/js/**" location="/static/js/"></mvc:resources>
+    <mvc:resources mapping="/assets/**" location="/static/assets/"></mvc:resources>
 
     <!-- 静态资源过滤 -->
     <mvc:default-servlet-handler/>

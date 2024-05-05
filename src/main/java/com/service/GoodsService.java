@@ -13,7 +13,14 @@ public interface GoodsService {
 
     List<Goods> findByNameLike(User user, String name);
 
+    /**
+     * 全部商品
+     * @return
+     */
+    List<Goods> findAll();
+
     void deleteById(Long id);
+
 
     void lockOrUpGoods(Long id);
 

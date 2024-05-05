@@ -42,6 +42,13 @@ public class ZreSourcesServiceImpl implements ZreSourceServices {
     }
 
     @Override
+    public List<ZreSources> findAll() {
+        Session currentSession = sessionFactory.getCurrentSession();
+        List<ZreSources> list = currentSession.createQuery("FROM ZreSources ", ZreSources.class).list();
+        return list;
+    }
+
+    @Override
     public void deleteById(Long id) {
         Session currentSession = sessionFactory.getCurrentSession();
         ZreSources zreSources = currentSession.get(ZreSources.class, id);

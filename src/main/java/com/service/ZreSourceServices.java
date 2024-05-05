@@ -12,11 +12,15 @@ public interface ZreSourceServices {
 
     List<ZreSources> findLikeTitle(String title);
 
+
+    List<ZreSources> findAll();
+
     void deleteById(Long id);
 
     ResponseResult deleteBatch(Long [] ids);
 
     ZreSources findById(Long id);
+
 
     void saveOrUpdate(ZreSources zreSources, Long ztypeid);
 
