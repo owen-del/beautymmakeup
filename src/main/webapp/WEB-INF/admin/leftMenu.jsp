@@ -52,7 +52,7 @@
         <li class="nav-item nav-item-has-subnav">
           <a href="javascript:void(0)"><i class="mdi mdi-palette"></i>买家菜单</a>
           <ul class="nav nav-subnav">
-            <li><a href="">待受理订单</a> </li>
+            <li><a href="/admin/prosorder/sellAcceptance">待受理订单</a> </li>
             <li><a href="/admin/prosorder/sellWaitSign">待签收订单</a> </li>
             <li><a href="">历史订单</a></li>
             <li><a href="">购物车</a></li>

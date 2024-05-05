@@ -26,4 +26,10 @@ public interface ProsorderService {
      */
     ResponseResult sellSign(Prosorder prosorder);
 
+    /**
+     * 买房取消订单
+     * @param id
+     */
+    void sellCancel(Long id);
+
 }

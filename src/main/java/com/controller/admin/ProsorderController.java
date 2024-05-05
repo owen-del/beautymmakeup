@@ -1,8 +1,6 @@
 package com.controller.admin;
 
 
-import cn.hutool.core.lang.Console;
-import com.entity.Messages;
 import com.entity.Prosorder;
 import com.entity.User;
 import com.response.ResponseResult;
@@ -60,6 +58,7 @@ public class ProsorderController {
         List<String> fshstatus = new ArrayList<>();
         fshstatus.add("已签收");
         fshstatus.add("已拒绝");
+        fshstatus.add("已取消");
         List<Prosorder> prosorderList = prosorderService.findLikeByOrderno(loginUser, fshstatus, orderno);
         modelAndView.setViewName("/admin/history/history");
         modelAndView.addObject("list", prosorderList);
@@ -203,7 +202,49 @@ public class ProsorderController {
         return prosorderService.sellSign(prosorder);
     }
 
+    /**
+     * 卖方待受理订单
+     * @param orderno
+     * @param request
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/sellAcceptance", method = RequestMethod.GET)
+    public ModelAndView sellAcceptance(@RequestParam(value = "orderno", defaultValue = "") String orderno, HttpServletRequest request, ModelAndView modelAndView) {
+        User loginUser = (User) request.getSession().getAttribute("loginUser");
+        List<String> fshstatus = new ArrayList<>();
+        fshstatus.add("待受理");
+        List<Prosorder> prosorderList = prosorderService.findLikeByOrderno(loginUser, fshstatus,orderno);
+        modelAndView.setViewName("/admin/sellAcceptance/sellAcceptance");
+        modelAndView.addObject("list", prosorderList);
+        return modelAndView;
+    }
 
-//
+    /**
+     * 买方待受理订单详情
+     * @param id
+     * @param modelAndView
+     * @return
+     */
+    @RequestMapping(value = "/sellAcceptanceDetails/{id}", method = RequestMethod.GET)
+    public ModelAndView sellAcceptanceDetails(@PathVariable("id") Long id, ModelAndView modelAndView) {
+        Prosorder prosorder = prosorderService.findById(id);
+        modelAndView.setViewName("/admin/sellAcceptance/details");
+        modelAndView.addObject("prosorder", prosorder);
+        modelAndView.addObject("op", "订单详情");
+        return modelAndView;
+    }
+
+    /**
+     * 买方取消订单
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/sellCancel/{id}", method = RequestMethod.GET)
+    public String sellCancel(@PathVariable("id") Long id) {
+        prosorderService.sellCancel(id);
+        return "redirect:/admin/prosorder/sellAcceptance";
+    }
+
 
 }

@@ -100,4 +100,12 @@ public class ProsorderServiceImpl implements ProsorderService {
         currentSession.update(old);
         return ResponseResult.SUCCESS("签收完成");
     }
+
+    @Override
+    public void sellCancel(Long id) {
+        Prosorder old = findById(id);
+        old.setFshstatus("已取消");
+        Session currentSession = sessionFactory.getCurrentSession();
+        currentSession.update(old);
+    }
 }
