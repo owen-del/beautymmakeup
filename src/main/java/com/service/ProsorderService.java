@@ -1,6 +1,7 @@
 package com.service;
 
 import com.entity.Prosorder;
+import com.entity.User;
 
 import java.util.List;
 
@@ -10,6 +11,8 @@ import java.util.List;
 public interface ProsorderService {
 
     List<Prosorder> findLikeByOrderno(String orderno);
+
+    List<Prosorder> findLikeByOrderno(User user, String orderno);
 
 
     Prosorder findById(Long id);
