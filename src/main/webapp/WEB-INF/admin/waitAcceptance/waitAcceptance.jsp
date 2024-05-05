@@ -54,7 +54,7 @@
           <div class="col-lg-12">
             <div class="card">
               <div class="card-toolbar clearfix">
-                <form class="pull-right search-bar" method="get" action="/admin/prosorder/historyOrder" id="search-form" role="form">
+                <form class="pull-right search-bar" method="get" action="/admin/prosorder/waitAcceptance" id="search-form" role="form">
                   <div class="input-group">
                     <div class="input-group-btn">
                       <button class="btn btn-default dropdown-toggle" id="search-btn"
@@ -113,7 +113,8 @@
                         <td>${item.savetime}</td>
                         <td>
                           <div class="btn-group">
-                            <a class="btn btn-xs btn-default" href="/admin/prosorder/historyDetails/${item.id}" title="查看" data-toggle="tooltip"><i class="mdi mdi-eye"></i></a>
+                            <a class="btn btn-xs btn-default" href="javascript:void(0);" onclick="handle(${item.id})" title="处理" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
+                            <a class="btn btn-xs btn-default" href="/admin/prosorder/waitAcceptanceDetails/${item.id}" title="查看" data-toggle="tooltip"><i class="mdi mdi-eye"></i></a>
                           </div>
                         </td>
                       </tr>
@@ -144,6 +145,96 @@
   function search() {
     $("#search-form").submit()
   }
+
+
+
+
+  function handle(id) {
+    $.confirm({
+      title: '提示',
+      content: '' +
+              '<form action="" class="formName">' +
+              '<div class="form-group">' +
+              '<label>订单状态</label>' +
+              '<div class="row">' +
+              '<div class="form-group col-md-4"><input type="radio" placeholder="请输入处理理由" value="待受理" name="fshstatus" checked class="fshstatus form-control" required />待受理</div>' +
+              '<div class="form-group col-md-4"><input type="radio" placeholder="请输入处理理由" value="已发货" name="fshstatus" class="fshstatus form-control" required />已发货</div>' +
+              '<div class="form-group col-md-4"><input type="radio" placeholder="请输入处理理由" value="已拒绝" name="fshstatus" class="fshstatus form-control" required />已拒绝</div>' +
+              '</div>'+
+              '<label>请输入处理理由</label>' +
+              '<input type="text" placeholder="请输入处理理由" class="fshremo form-control" required />' +
+              '</div>' +
+              '</form>',
+      buttons: {
+        formSubmit: {
+          text: '提交',
+          btnClass: 'btn-blue',
+          action: function () {
+            var fshremo = this.$content.find('.fshremo').val();
+            var fshstatus = this.$content.find("input[name='fshstatus'][type='radio']:checked").val();
+            if(!fshremo){
+              $.alert('请录入理由');
+              return false;
+            }
+
+            $.ajax({
+              type:"POST",
+              url:"/admin/prosorder/waitAcceptancehandle",
+              data:{
+                "id": id,
+                "fshremo": fshremo,
+                "fshstatus": fshstatus
+              },
+              async:false,
+              dataType:"json",
+              success:function(data){
+                if (data.success) {
+                  $.confirm({
+                    title: '成功',
+                    content: data.message,
+                    type: 'green',
+                    buttons: {
+                      close: {
+                        text: '关闭',
+                      }
+                    }
+                  });
+                  window.location.href = "/admin/prosorder/waitAcceptance";
+                }else {
+                  $.confirm({
+                    title: '警告',
+                    content: data.message,
+                    type: 'orange',
+                    typeAnimated: false,
+                    buttons: {
+                      close: {
+                        text: '关闭',
+                      }
+                    }
+                  });
+                }
+              },
+              error:function(w, e, q){
+                console.log(q)
+              }
+            });
+
+          }
+        },
+        cancel: {
+          text: '取消'
+        },
+      },
+      onContentReady: function () {
+        var jc = this;
+        this.$content.find('form').on('submit', function (e) {
+          e.preventDefault();
+          jc.$$formSubmit.trigger('click');
+        });
+      }
+    });
+  }
+
 
 </script>
 </body>
