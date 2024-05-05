@@ -28,7 +28,7 @@ public class Prosorder {
 
     // 商品id
     @Column(name = "gid")
-    private String gid;
+    private Long gid;
 
     // 商品编号
     @Column(name = "gno")
@@ -119,11 +119,11 @@ public class Prosorder {
         this.uname = uname;
     }
 
-    public String getGid() {
+    public Long getGid() {
         return gid;
     }
 
-    public void setGid(String gid) {
+    public void setGid(Long gid) {
         this.gid = gid;
     }
 

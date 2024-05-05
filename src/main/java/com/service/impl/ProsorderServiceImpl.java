@@ -82,7 +82,6 @@ public class ProsorderServiceImpl implements ProsorderService {
     @Override
     public ResponseResult waitAcceptancehandle(Prosorder prosorder) {
         Prosorder old = findById(prosorder.getId());
-        old.setFgname(prosorder.getFgname());
         old.setFshremo(prosorder.getFshremo());
         old.setFshstatus(prosorder.getFshstatus());
         Session currentSession = sessionFactory.getCurrentSession();
