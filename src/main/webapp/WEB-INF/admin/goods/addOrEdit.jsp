@@ -13,6 +13,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/uploadfile.css">
     <link rel="stylesheet" href="/js/jconfirm/jquery-confirm.min.css">
 </head>
 
@@ -98,7 +99,8 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="filename">图片</label>
-                                        <input type="text" class="form-control" id="filename" name="filename" value="${goods.filename}" placeholder="图片" />
+<%--                                        <input type="text" class="form-control" id="filename" name="filename" value="${goods.filename}" placeholder="图片" />--%>
+                                        <div id="fileuploader">Upload</div>
                                     </div>
 
                                     <div class="form-group col-md-12">
@@ -121,7 +123,18 @@
 <script type="text/javascript" src="/js/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="/js/main.min.js"></script>
 <script src="/js/jconfirm/jquery-confirm.min.js"></script>
+<script src="/js/jquery.uploadfile.min.js"></script>
 <script type="text/javascript">
+
+    $("#fileuploader").uploadFile({
+        url:"/public/upload",
+        fileName:"file",
+        method:"POST",
+        onSuccess: function (files, response, xhr, pd){
+            console.log(response)
+        }
+    });
+
 </script>
 </body>
 </html>

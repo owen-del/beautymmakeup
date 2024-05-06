@@ -35,7 +35,7 @@
               <span class="lyear-toggler-bar"></span>
               <span class="lyear-toggler-bar"></span>
             </div>
-            <span class="navbar-page-title"> 交易明细管理 </span>
+            <span class="navbar-page-title"> 卖家待受理订单 </span>
           </div>
 
           <jsp:include page="../topRight.jsp"/>

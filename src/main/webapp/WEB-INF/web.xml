@@ -15,6 +15,18 @@
         </init-param>
         <!-- 配置启动级别为1，（和Tomcat一起启动） -->
         <load-on-startup>1</load-on-startup>
+        <!-- spring6的文件上传配置 -->
+        <multipart-config>
+            <!--上传到/tmp/upload 目录,如果配置为/使用HttpServletRequest上传时，可能会抛出异常/无权限操作-->
+<!--            <location>/</location>-->
+            <!--文件大小为2M-->
+            <max-file-size>2097152</max-file-size>
+            <!--整个请求不超过4M-->
+            <max-request-size>4194304</max-request-size>
+            <!--所有文件都要写入磁盘-->
+            <file-size-threshold>0</file-size-threshold>
+        </multipart-config>
+
     </servlet>
 
     <servlet-mapping>

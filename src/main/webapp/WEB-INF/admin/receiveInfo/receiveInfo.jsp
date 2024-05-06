@@ -35,7 +35,7 @@
               <span class="lyear-toggler-bar"></span>
               <span class="lyear-toggler-bar"></span>
             </div>
-            <span class="navbar-page-title"> 类别管理 </span>
+            <span class="navbar-page-title"> 收货信息 </span>
           </div>
 
           <jsp:include page="../topRight.jsp"/>

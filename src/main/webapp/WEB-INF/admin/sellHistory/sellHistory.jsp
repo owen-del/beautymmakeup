@@ -35,7 +35,7 @@
               <span class="lyear-toggler-bar"></span>
               <span class="lyear-toggler-bar"></span>
             </div>
-            <span class="navbar-page-title"> 历史订单 </span>
+            <span class="navbar-page-title"> 买家历史订单 </span>
           </div>
 
           <jsp:include page="../topRight.jsp"/>

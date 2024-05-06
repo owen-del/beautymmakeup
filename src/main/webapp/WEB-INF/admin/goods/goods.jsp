@@ -87,6 +87,7 @@
                                             <th>发布人</th>
                                             <th>商品编号</th>
                                             <th>商品名称</th>
+                                            <th>商品图片</th>
                                             <th>大类</th>
                                             <th>单价</th>
                                             <th>上架状态</th>
@@ -107,6 +108,7 @@
                                                 <td>${item.user.id} [${item.user.name}]</td>
                                                 <td>${item.no}</td>
                                                 <td>${item.name}</td>
+                                                <td><img src="${item.filename}" width="120px"/></td>
                                                 <td>${item.category.name}</td>
                                                 <td>${item.price}</td>
                                                 <td><font class="text-success">${item.status}</font></td>

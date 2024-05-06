@@ -42,6 +42,7 @@
                             <div class="mean__menu-wrapper furniture__menu d-none d-lg-block">
                                 <div class="main-menu">
                                     <nav id="mobile-menu">
+                                    <nav id="mobile-menu">
                                         <ul>
                                             <li>
                                                 <a href="/assets/index">首页</a>
@@ -72,7 +73,7 @@
                         <div class="header-right d-inline-flex align-items-center justify-content-end">
                             <div class="header-search d-none d-xxl-block">
                                 <form action="#">
-                                    <input type="text" placeholder="Search...">
+                                    <input type="text" placeholder="搜索">
                                     <button type="submit">
                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">

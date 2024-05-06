@@ -91,6 +91,7 @@
                       </th>
                       <th>账号</th>
                       <th>用户名</th>
+                      <th>用户类型</th>
                       <th>性别</th>
                       <th>联系电话</th>
                       <th>状态</th>
@@ -109,6 +110,7 @@
                         </td>
                         <td>${item.account}</td>
                         <td>${item.name}</td>
+                        <td>${item.type}</td>
                         <td>${item.sex}</td>
                         <td>${item.tel}</td>
                         <td><font class="${item.status == "正常" ? "text-success" : "text-warning"}">${item.status}</font></td>

@@ -1,7 +1,5 @@
 package com.controller.admin;
 
-import cn.hutool.core.lang.Console;
-import com.entity.Category;
 import com.entity.User;
 import com.response.ResponseResult;
 import com.service.UserService;

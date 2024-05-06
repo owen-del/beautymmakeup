@@ -1,6 +1,5 @@
 package com.service.impl;
 
-import com.entity.Category;
 import com.entity.Prosorder;
 import com.entity.User;
 import com.response.ResponseResult;
